@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-10 sm:py-16 bg-black/30 backdrop-blur-sm border-y border-amber-500/20 relative w-full max-w-full overflow-hidden">
+    <section id="why-choose-us" className="py-10 sm:py-16 bg-black/30 backdrop-blur-sm border-y border-amber-500/20 relative w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 w-full max-w-full">
 
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">

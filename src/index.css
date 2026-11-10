@@ -117,3 +117,14 @@
 .royal-border:hover {
   border-color: rgba(230, 179, 67, 0.6);
 }
+
+/* Offset for fixed navbar on mobile & desktop anchors */
+#menu,
+#biryani-section,
+#extras-section,
+#icecream-section,
+#location-hours,
+#why-choose-us,
+#reviews {
+  scroll-margin-top: 80px;
+}

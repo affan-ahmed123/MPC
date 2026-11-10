@@ -178,8 +178,8 @@ export default function CheckoutModal() {
                   type="button"
                   onClick={() => setDeliveryType(opt.id)}
                   className={`py-2 px-2 rounded-xl border text-center transition-all ${deliveryType === opt.id
-                      ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
-                      : 'border-gray-800 bg-[#161b24] text-gray-400 hover:border-gray-700'
+                    ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
+                    : 'border-gray-800 bg-[#161b24] text-gray-400 hover:border-gray-700'
                     }`}
                 >
                   <div className="font-bold text-xs">{opt.label}</div>
@@ -249,16 +249,14 @@ export default function CheckoutModal() {
               <button
                 type="button"
                 onClick={() => setPaymentMethod('Cash on Delivery')}
-                className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
-                  paymentMethod === 'Cash on Delivery'
+                className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${paymentMethod === 'Cash on Delivery'
                     ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
                     : 'border-gray-800 bg-[#161b24] text-gray-400 hover:border-gray-700'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    paymentMethod === 'Cash on Delivery' ? 'bg-amber-400/20 text-[#e6b343]' : 'bg-gray-800 text-gray-400'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${paymentMethod === 'Cash on Delivery' ? 'bg-amber-400/20 text-[#e6b343]' : 'bg-gray-800 text-gray-400'
+                    }`}>
                     <Banknote className="w-4 h-4" />
                   </div>
                   <div>
@@ -275,16 +273,14 @@ export default function CheckoutModal() {
               <button
                 type="button"
                 onClick={() => setPaymentMethod('Online Payment')}
-                className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${
-                  paymentMethod === 'Online Payment'
+                className={`p-3 rounded-xl border text-left transition-all flex items-center justify-between ${paymentMethod === 'Online Payment'
                     ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
                     : 'border-gray-800 bg-[#161b24] text-gray-400 hover:border-gray-700'
-                }`}
+                  }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    paymentMethod === 'Online Payment' ? 'bg-emerald-400/20 text-emerald-400' : 'bg-gray-800 text-gray-400'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${paymentMethod === 'Online Payment' ? 'bg-emerald-400/20 text-emerald-400' : 'bg-gray-800 text-gray-400'
+                    }`}>
                     <CreditCard className="w-4 h-4" />
                   </div>
                   <div>

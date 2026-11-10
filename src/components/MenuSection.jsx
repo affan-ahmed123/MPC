@@ -5,8 +5,7 @@ import { Search, Sparkles, Plus, ShoppingBag, Flame, FileText, IceCream, Award, 
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function MenuSection() {
-  const { cartItems, addToCart, setActiveModal, setModalData } = useCart();
-  const [activeCategory, setActiveCategory] = useState('all');
+  const { cartItems, addToCart, setActiveModal, setModalData, activeCategory, setActiveCategory } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedScoopMode, setSelectedScoopMode] = useState('1-scoop'); // '1-scoop' or '2-scoop'
 

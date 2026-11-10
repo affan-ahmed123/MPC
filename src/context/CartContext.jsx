@@ -44,6 +44,7 @@ export const CartProvider = ({ children }) => {
   const [deliveryType, setDeliveryType] = useState('delivery'); // 'delivery', 'takeaway', 'dinein'
   const [couponCode, setCouponCode] = useState('');
   const [discountAmount, setDiscountAmount] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('all');
 
   // Persist cart
   useEffect(() => {
@@ -144,7 +145,7 @@ export const CartProvider = ({ children }) => {
   // Totals
   const totalItemCount = cartItems.reduce((acc, it) => acc + it.quantity, 0);
   const subtotal = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
-  
+
   const deliveryFee = deliveryType === 'takeaway' || deliveryType === 'dinein' || subtotal >= shopConfig.freeDeliveryThreshold || subtotal === 0
     ? 0
     : shopConfig.deliveryFee;
@@ -188,6 +189,8 @@ export const CartProvider = ({ children }) => {
         totalAmount,
         shopConfig,
         updateShopConfig,
+        activeCategory,
+        setActiveCategory,
       }}
     >
       {children}
