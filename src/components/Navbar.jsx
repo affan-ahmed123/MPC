@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
-import { ShoppingBag, Menu, X, FileText, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Menu, X, FileText, ArrowRight, MessageSquareQuote } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -89,13 +89,13 @@ export default function Navbar() {
                   MADINA <span className="gold-text-gradient">PAKWAN CENTER</span>
                 </span>
                 <span className="text-[9px] sm:text-xs text-amber-300/80 font-medium tracking-wide truncate block">
-                  Authentic Karachi Taste & Flavors
+                  Delicious Taste with Quality, Always with You
                 </span>
               </div>
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-7 text-sm font-medium flex-shrink-0">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium flex-shrink-0">
               <button
                 type="button"
                 onClick={() => scrollTo('menu', 'all')}
@@ -114,10 +114,18 @@ export default function Navbar() {
 
               <button
                 type="button"
-                onClick={() => scrollTo('extras-section', 'extras')}
+                onClick={() => scrollTo('salad-raita-section', 'salad-raita')}
                 className="text-gray-300 hover:text-amber-400 transition-colors py-1"
               >
-                <span>Sides & Drinks</span>
+                <span>Salad & Raita</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scrollTo('drinks-section', 'drinks')}
+                className="text-gray-300 hover:text-amber-400 transition-colors py-1"
+              >
+                <span>Drinks</span>
               </button>
 
               <button
@@ -130,11 +138,19 @@ export default function Navbar() {
 
               <button
                 type="button"
+                onClick={() => scrollTo('reviews-section')}
+                className="text-gray-300 hover:text-amber-400 transition-colors py-1 flex items-center gap-1"
+              >
+                <span>Reviews</span>
+              </button>
+
+              <button
+                type="button"
                 onClick={() => openOriginalCard('biryani')}
-                className="text-amber-300/90 hover:text-white transition-colors py-1 flex items-center gap-1.5 text-xs bg-amber-500/10 hover:bg-amber-500/25 px-3 py-1.5 rounded-xl border border-amber-500/30 shadow-sm"
+                className="text-amber-300/90 hover:text-white transition-colors py-1 flex items-center gap-1 text-xs bg-amber-500/10 hover:bg-amber-500/25 px-2.5 py-1 rounded-xl border border-amber-500/30 shadow-sm"
               >
                 <FileText className="w-3.5 h-3.5 text-[#e6b343]" />
-                <span>Original Flyers</span>
+                <span>Flyers</span>
               </button>
 
               <button
@@ -142,7 +158,7 @@ export default function Navbar() {
                 onClick={() => scrollTo('location-hours')}
                 className="text-gray-300 hover:text-amber-400 transition-colors py-1"
               >
-                <span>Contact & Hours</span>
+                <span>Contact</span>
               </button>
             </nav>
 
@@ -158,7 +174,7 @@ export default function Navbar() {
                 <span>Flyers</span>
               </button>
 
-              {/* Bag-Type Checkout Button (Fully Responsive on Mobile & Desktop) */}
+              {/* Bag-Type Checkout Button */}
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsCartOpen(true)}
@@ -225,11 +241,19 @@ export default function Navbar() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => scrollTo('extras-section', 'extras')}
+                  onClick={() => scrollTo('salad-raita-section', 'salad-raita')}
                   className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
                 >
                   <span className="text-base">🥗</span>
-                  <span>Sides & Drinks</span>
+                  <span>Salad & Raita</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollTo('drinks-section', 'drinks')}
+                  className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
+                >
+                  <span className="text-base">🥤</span>
+                  <span>Cold Drinks</span>
                 </button>
                 <button
                   type="button"
@@ -238,6 +262,14 @@ export default function Navbar() {
                 >
                   <span className="text-base">🍨</span>
                   <span>Ice Cream</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollTo('reviews-section')}
+                  className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
+                >
+                  <span className="text-base">⭐</span>
+                  <span>Reviews & Form</span>
                 </button>
                 <button
                   type="button"
@@ -252,7 +284,7 @@ export default function Navbar() {
                   onClick={() => scrollTo('why-choose-us')}
                   className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
                 >
-                  <span className="text-base">⭐</span>
+                  <span className="text-base">✨</span>
                   <span>Why Us</span>
                 </button>
               </div>

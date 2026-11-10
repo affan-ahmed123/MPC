@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { SHOP_CONFIG } from '../data/menuData';
+import { SHOP_CONFIG, DELIVERY_TIERS } from '../data/menuData';
 
 const CartContext = createContext();
 
@@ -22,17 +22,33 @@ export const CartProvider = ({ children }) => {
     }
   });
 
-  // Shop Config with WhatsApp phone number
+  // Shop Config with updated WhatsApp phone number and Rs. 3000 free delivery
   const [shopConfig, setShopConfig] = useState(() => {
     try {
       const saved = localStorage.getItem('mpc_shop_config');
       if (saved) {
         const parsed = JSON.parse(saved);
-        return { ...SHOP_CONFIG, ...parsed, freeDeliveryThreshold: 2000 };
+        return { 
+          ...SHOP_CONFIG, 
+          ...parsed, 
+          phone: "+92 314 1281986",
+          whatsappNumber: "923141281986",
+          freeDeliveryThreshold: 3000,
+          deliveryFee: 70
+        };
       }
       return SHOP_CONFIG;
     } catch {
       return SHOP_CONFIG;
+    }
+  });
+
+  // Delivery Area: 'nearby' (Rs. 70), 'medium' (Rs. 150), 'outside' (Rs. 250)
+  const [deliveryArea, setDeliveryArea] = useState(() => {
+    try {
+      return localStorage.getItem('mpc_delivery_area') || 'nearby';
+    } catch {
+      return 'nearby';
     }
   });
 
@@ -63,6 +79,15 @@ export const CartProvider = ({ children }) => {
       console.error(err);
     }
   }, [shopConfig]);
+
+  // Persist delivery area
+  useEffect(() => {
+    try {
+      localStorage.setItem('mpc_delivery_area', deliveryArea);
+    } catch (err) {
+      console.error(err);
+    }
+  }, [deliveryArea]);
 
   // Add Item to Cart
   const addToCart = (item, selectedPortion = null, selectedFlavor = null, quantity = 1) => {
@@ -142,13 +167,18 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // Totals
+  // Totals & Tiered Delivery Calculation
   const totalItemCount = cartItems.reduce((acc, it) => acc + it.quantity, 0);
   const subtotal = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
 
-  const deliveryFee = deliveryType === 'takeaway' || deliveryType === 'dinein' || subtotal >= shopConfig.freeDeliveryThreshold || subtotal === 0
+  const activeTier = DELIVERY_TIERS.find(t => t.id === deliveryArea) || DELIVERY_TIERS[0];
+  const standardTierFee = activeTier ? activeTier.fee : 70;
+  const freeThreshold = shopConfig.freeDeliveryThreshold || 3000;
+  const isFreeDelivery = subtotal >= freeThreshold;
+
+  const deliveryFee = deliveryType === 'takeaway' || deliveryType === 'dinein' || isFreeDelivery || subtotal === 0
     ? 0
-    : shopConfig.deliveryFee;
+    : standardTierFee;
 
   const totalAmount = Math.max(0, subtotal - discountAmount + deliveryFee);
 
@@ -180,6 +210,12 @@ export const CartProvider = ({ children }) => {
         setOrderInstructions,
         deliveryType,
         setDeliveryType,
+        deliveryArea,
+        setDeliveryArea,
+        activeTier,
+        deliveryTiers: DELIVERY_TIERS,
+        freeDeliveryThreshold: freeThreshold,
+        isFreeDelivery,
         couponCode,
         discountAmount,
         applyCoupon,

@@ -6,6 +6,7 @@ export function formatWhatsAppMessage({
   customerName,
   customerPhone,
   deliveryType,
+  deliveryAreaLabel,
   address,
   instructions,
   subtotal,
@@ -39,7 +40,7 @@ export function formatWhatsAppMessage({
   if (discount > 0) {
     msg += `🎉 *Discount Voucher (${couponCode}):* -Rs. ${discount}\n`;
   }
-  msg += `🚚 *Delivery Charges:* ${deliveryFee === 0 ? 'FREE DELIVERY' : `Rs. ${deliveryFee}`}\n`;
+  msg += `🚚 *Delivery Charges:* ${deliveryFee === 0 ? 'FREE DELIVERY (Order Rs. 3000+)' : `Rs. ${deliveryFee}`}\n`;
   msg += `💰 *TOTAL PAYABLE AMOUNT:* *Rs. ${totalAmount}*\n`;
   msg += `${divider}\n\n`;
 
@@ -49,11 +50,14 @@ export function formatWhatsAppMessage({
   msg += `• Order Type: *${deliveryType === 'delivery' ? 'Home Delivery' : deliveryType === 'takeaway' ? 'Takeaway / Self-Pickup' : 'Dine-In'}*\n`;
 
   if (deliveryType === 'delivery') {
+    if (deliveryAreaLabel) {
+      msg += `• Delivery Area / Distance: *${deliveryAreaLabel}*\n`;
+    }
     msg += `• Delivery Address: *${address || 'N/A'}*\n`;
   }
 
-  const paymentFormatted = paymentMethod === 'Online Payment' 
-    ? 'Online Payment (JazzCash / EasyPaisa / Bank Transfer)' 
+  const paymentFormatted = paymentMethod === 'Online Payment'
+    ? 'Online Payment (JazzCash / EasyPaisa / Bank Transfer)'
     : 'Cash on Delivery (COD)';
   msg += `• Payment Method: *${paymentFormatted}*\n`;
 

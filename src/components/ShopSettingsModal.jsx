@@ -6,12 +6,12 @@ import { SHOP_CONFIG } from '../data/menuData';
 export default function ShopSettingsModal() {
   const { activeModal, setActiveModal, shopConfig, updateShopConfig } = useCart();
 
-  const [whatsapp, setWhatsapp] = useState(shopConfig.whatsappNumber || '923001234567');
-  const [phone, setPhone] = useState(shopConfig.phone || '+92 300 1234567');
-  const [address, setAddress] = useState(shopConfig.address || 'Main Commercial Area, Near City Chowk');
+  const [whatsapp, setWhatsapp] = useState(shopConfig.whatsappNumber || '923141281986');
+  const [phone, setPhone] = useState(shopConfig.phone || '+92 314 1281986');
+  const [address, setAddress] = useState(shopConfig.address || 'Near 10 Number Market, Orangi Town');
   const [timings, setTimings] = useState(shopConfig.timings || 'Daily: 11:30 AM - 1:30 AM');
-  const [deliveryFee, setDeliveryFee] = useState(shopConfig.deliveryFee || 100);
-  const [freeThreshold, setFreeThreshold] = useState(shopConfig.freeDeliveryThreshold || 2000);
+  const [deliveryFee, setDeliveryFee] = useState(shopConfig.deliveryFee || 70);
+  const [freeThreshold, setFreeThreshold] = useState(shopConfig.freeDeliveryThreshold || 3000);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
   if (activeModal !== 'settings') return null;
@@ -81,11 +81,11 @@ export default function ShopSettingsModal() {
               required
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
-              placeholder="e.g. 923001234567"
+              placeholder="e.g. 923141281986"
               className="w-full bg-[#0a0d13] border border-gray-800 rounded-xl px-3 py-2 text-sm text-white font-mono focus:border-[#e6b343] focus:outline-none"
             />
             <p className="text-[10px] text-gray-400 mt-1">
-              Include country code without plus sign (e.g. 923001234567)
+              Include country code without plus sign (e.g. 923141281986)
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function ShopSettingsModal() {
               type="text"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="+92 300 1234567"
+              placeholder="+92 314 1281986"
               className="w-full bg-[#0a0d13] border border-gray-800 rounded-xl px-3 py-2 text-white font-mono focus:border-[#e6b343] focus:outline-none"
             />
           </div>
@@ -112,7 +112,7 @@ export default function ShopSettingsModal() {
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              placeholder="Main Commercial Area..."
+              placeholder="Near 10 Number Market, Orangi Town..."
               className="w-full bg-[#0a0d13] border border-gray-800 rounded-xl px-3 py-2 text-white focus:border-[#e6b343] focus:outline-none"
             />
           </div>

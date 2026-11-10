@@ -8,10 +8,10 @@ export default function LocationHours() {
   return (
     <section id="location-hours" className="py-10 sm:py-20 bg-transparent border-t border-gray-800 w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 w-full max-w-full">
-        
+
         <div className="bg-[#121622]/90 backdrop-blur-md border border-[#e6b343]/30 rounded-2xl sm:rounded-3xl p-3.5 sm:p-10 shadow-2xl overflow-hidden relative w-full max-w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center w-full max-w-full">
-            
+
             {/* Info Column */}
             <div className="space-y-4 sm:space-y-6 w-full max-w-full">
               <div>
@@ -27,7 +27,7 @@ export default function LocationHours() {
               </div>
 
               <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm w-full max-w-full">
-                
+
                 <div className="flex items-start gap-3 p-3 bg-[#0a0d14] rounded-xl border border-gray-800 min-w-0">
                   <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <div className="min-w-0">
@@ -42,7 +42,7 @@ export default function LocationHours() {
                   <div className="min-w-0">
                     <strong className="text-white block font-bold text-xs sm:text-sm">Store Address:</strong>
                     <span className="text-gray-300 text-xs sm:text-sm">{shopConfig.address}, {shopConfig.city}</span>
-                    <span className="text-[10px] sm:text-[11px] text-gray-400 block mt-0.5">Fast home delivery & takeaway pickup</span>
+                    <span className="text-[10px] sm:text-[11px] text-gray-400 block mt-0.5">Fast home delivery directly to your door</span>
                   </div>
                 </div>
 
@@ -100,7 +100,7 @@ export default function LocationHours() {
                 </div>
                 <div className="p-2 sm:p-3 bg-[#131722] rounded-lg sm:rounded-xl border border-gray-800 min-w-0 overflow-hidden">
                   <span className="text-[10px] sm:text-[11px] text-gray-400 block truncate">Free Delivery</span>
-                  <span className="text-xs sm:text-sm font-bold text-emerald-400 block truncate">Orders Rs. 2000+</span>
+                  <span className="text-xs sm:text-sm font-bold text-emerald-400 block truncate">Orders Rs. 3000+</span>
                 </div>
               </div>
             </div>

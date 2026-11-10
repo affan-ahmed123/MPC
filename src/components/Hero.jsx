@@ -165,8 +165,8 @@ export default function Hero() {
               <Bike className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <h4 className="font-bold text-white text-xs sm:text-sm truncate">Free Delivery</h4>
-            <p className="text-[11px] sm:text-xs text-emerald-400 font-extrabold mt-0.5">On Orders Rs. 2000+</p>
-            <p className="text-[9px] sm:text-[11px] text-gray-300 mt-0.5 truncate">Standard Delivery Rs. 100</p>
+            <p className="text-[11px] sm:text-xs text-emerald-400 font-extrabold mt-0.5">On Orders Rs. 3000+</p>
+            <p className="text-[9px] sm:text-[11px] text-gray-300 mt-0.5 truncate">Delivery from Rs. 70 (Nearby)</p>
           </motion.div>
 
         </div>

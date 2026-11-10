@@ -28,39 +28,39 @@ export default function PortionModal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div 
+      <div
         className="relative w-full max-w-lg bg-[#141822] border border-[#e6b343]/30 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header Image & Close Button */}
-        <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-black">
-          <img 
-            src={isIceCream && selectedFlavor ? selectedFlavor.image : item.image} 
-            alt={item.name} 
-            className="w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+        <div className={`relative h-44 sm:h-52 w-full overflow-hidden ${item.category === 'drinks' ? 'bg-white flex items-center justify-center p-4' : 'bg-black'}`}>
+          <img
+            src={isIceCream && selectedFlavor ? selectedFlavor.image : item.image}
+            alt={item.name}
+            className={item.category === 'drinks' ? "h-full w-auto object-contain drop-shadow-lg" : "w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141822] via-[#141822]/40 to-transparent" />
-          
+          <div className="absolute inset-0 bg-gradient-to-t from-[#141822] via-[#141822]/40 to-transparent pointer-events-none" />
+
           <button
             onClick={() => setActiveModal(null)}
-            className="absolute top-3 right-3 p-2 rounded-full bg-black/60 text-gray-300 hover:text-white hover:bg-black transition-all border border-white/10"
+            className="absolute top-3 right-3 p-2 rounded-full bg-black/60 text-gray-300 hover:text-white hover:bg-black transition-all border border-white/10 z-10"
           >
             <X className="w-5 h-5" />
           </button>
 
           {item.badge && (
-            <div className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-700 text-black font-bold text-xs uppercase px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5">
+            <div className="absolute top-3 left-3 bg-gradient-to-r from-amber-500 to-amber-700 text-black font-bold text-xs uppercase px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 z-10">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{item.badge}</span>
             </div>
           )}
 
-          <div className="absolute bottom-3 left-4 right-4">
-            <h3 className="text-2xl font-bold font-serif text-white">
+          <div className="absolute bottom-3 left-4 right-4 z-10">
+            <h3 className="text-2xl font-bold font-serif text-white drop-shadow-md">
               {isIceCream && selectedFlavor ? `${selectedFlavor.name} Ice Cream Cup` : item.name}
             </h3>
-            <p className="text-[#e6b343] text-sm font-semibold mt-0.5">
-              {isIceCream ? '🍨 Served in Chilled Dessert Cup with Spoon' : 'Authentic Taste & Quality'}
+            <p className="text-[#e6b343] text-sm font-semibold mt-0.5 drop-shadow">
+              {isIceCream ? '🍨 Served in Chilled Dessert Cup with Spoon' : item.category === 'drinks' ? '🥤 Ice Chilled & Sealed Bottle' : 'Authentic Taste & Quality'}
             </p>
           </div>
         </div>
@@ -88,11 +88,10 @@ export default function PortionModal() {
                       key={portion.id}
                       type="button"
                       onClick={() => setSelectedPortion(portion)}
-                      className={`relative flex items-center justify-between p-3 rounded-xl border text-left transition-all ${
-                        isSelected
+                      className={`relative flex items-center justify-between p-3 rounded-xl border text-left transition-all ${isSelected
                           ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
                           : 'border-gray-800 bg-[#1a202c]/60 text-gray-300 hover:border-gray-700 hover:bg-[#1f2633]'
-                      }`}
+                        }`}
                     >
                       <div>
                         <div className="font-semibold text-sm">{portion.name}</div>
@@ -129,14 +128,13 @@ export default function PortionModal() {
                       key={flavor.id}
                       type="button"
                       onClick={() => setSelectedFlavor(flavor)}
-                      className={`flex flex-col p-2.5 rounded-xl border text-left transition-all relative ${
-                        isSelected
+                      className={`flex flex-col p-2.5 rounded-xl border text-left transition-all relative ${isSelected
                           ? 'border-[#e6b343] bg-[#e6b343]/15 text-white shadow-md'
                           : 'border-gray-800 bg-[#1a202c]/50 text-gray-300 hover:border-gray-700'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-1.5 mb-1">
-                        <span 
+                        <span
                           className="w-3 h-3 rounded-full flex-shrink-0"
                           style={{ backgroundColor: flavor.color }}
                         />

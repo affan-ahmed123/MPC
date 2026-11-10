@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
-import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Tag, Bike, Store, Utensils, MessageCircle } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Tag, Bike, MessageCircle, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CartDrawer() {
@@ -19,6 +19,12 @@ export default function CartDrawer() {
     applyCoupon,
     deliveryType,
     setDeliveryType,
+    deliveryArea,
+    setDeliveryArea,
+    activeTier,
+    deliveryTiers,
+    freeDeliveryThreshold,
+    isFreeDelivery,
     orderInstructions,
     setOrderInstructions,
     shopConfig,
@@ -38,15 +44,15 @@ export default function CartDrawer() {
     setTimeout(() => setCouponMsg(null), 4000);
   };
 
-  const freeDeliveryThreshold = shopConfig.freeDeliveryThreshold || 2000;
-  const remainingForFree = Math.max(0, freeDeliveryThreshold - subtotal);
-  const freeProgress = Math.min(100, Math.round((subtotal / freeDeliveryThreshold) * 100));
+  const threshold = freeDeliveryThreshold || 3000;
+  const remainingForFree = Math.max(0, threshold - subtotal);
+  const freeProgress = Math.min(100, Math.round((subtotal / threshold) * 100));
 
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 overflow-hidden">
         {/* Backdrop Fade */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -55,14 +61,14 @@ export default function CartDrawer() {
         />
 
         <div className="fixed inset-y-0 right-0 w-full sm:max-w-md flex z-50">
-          <motion.div 
+          <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className="w-full h-full bg-[#0f131c]/95 backdrop-blur-xl border-l border-amber-500/30 text-gray-200 flex flex-col shadow-2xl overflow-hidden"
           >
-            
+
             {/* Drawer Header */}
             <div className="p-3.5 sm:p-5 bg-[#0a0d14] border-b border-amber-500/20 flex items-center justify-between gap-2 min-w-0">
               <div className="flex items-center gap-2.5 min-w-0">
@@ -100,64 +106,62 @@ export default function CartDrawer() {
               </div>
             </div>
 
-            {/* Free Delivery Bar: Rs. 2000 Threshold */}
-            {deliveryType === 'delivery' && (
-              <div className="bg-[#151a26] px-3.5 sm:px-4 py-2 border-b border-amber-500/15 min-w-0">
-                <div className="flex items-center justify-between text-[11px] sm:text-xs mb-1 gap-2 min-w-0">
-                  <span className="text-gray-300 flex items-center gap-1 truncate min-w-0">
-                    <Bike className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
-                    {remainingForFree === 0 ? (
-                      <span className="text-emerald-400 font-bold truncate">🎉 FREE Delivery Unlocked (Order Rs. 2000+)!</span>
-                    ) : (
-                      <span className="truncate">Add <strong className="text-amber-400 font-mono">Rs. {remainingForFree}</strong> for FREE Delivery</span>
-                    )}
-                  </span>
-                  <span className="text-gray-400 font-mono text-[10px] sm:text-[11px] flex-shrink-0">{freeProgress}%</span>
-                </div>
-                <div className="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
-                  <div 
-                    className="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full transition-all duration-300"
-                    style={{ width: `${freeProgress}%` }}
-                  />
-                </div>
+            {/* Free Delivery Bar: Rs. 3000 Threshold */}
+            <div className="bg-[#151a26] px-3.5 sm:px-4 py-2 border-b border-amber-500/15 min-w-0">
+              <div className="flex items-center justify-between text-[11px] sm:text-xs mb-1 gap-2 min-w-0">
+                <span className="text-gray-300 flex items-center gap-1 truncate min-w-0">
+                  <Bike className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                  {remainingForFree === 0 ? (
+                    <span className="text-emerald-400 font-bold truncate">🎉 FREE Delivery Unlocked (Order Rs. 3000+)!</span>
+                  ) : (
+                    <span className="truncate">Add <strong className="text-amber-400 font-mono">Rs. {remainingForFree}</strong> for FREE Delivery</span>
+                  )}
+                </span>
+                <span className="text-gray-400 font-mono text-[10px] sm:text-[11px] flex-shrink-0">{freeProgress}%</span>
               </div>
-            )}
+              <div className="w-full bg-gray-800 h-1.5 rounded-full overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-full transition-all duration-300"
+                  style={{ width: `${freeProgress}%` }}
+                />
+              </div>
+            </div>
 
-            {/* Delivery Method Selector (Clean Grid on Mobile) */}
-            <div className="grid grid-cols-3 gap-1.5 p-2 sm:p-3 bg-[#0a0d14] border-b border-gray-800/80 text-[11px] sm:text-xs">
-              <button
-                onClick={() => setDeliveryType('delivery')}
-                className={`py-1.5 px-1 sm:py-2 sm:px-2 rounded-lg flex items-center justify-center gap-1 font-medium transition-all min-w-0 ${
-                  deliveryType === 'delivery'
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black font-bold shadow-md'
-                    : 'bg-[#141824] text-gray-400 hover:text-gray-200'
-                }`}
-              >
-                <Bike className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                <span className="truncate">Delivery</span>
-              </button>
-              <button
-                onClick={() => setDeliveryType('takeaway')}
-                className={`py-1.5 px-1 sm:py-2 sm:px-2 rounded-lg flex items-center justify-center gap-1 font-medium transition-all min-w-0 ${
-                  deliveryType === 'takeaway'
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black font-bold shadow-md'
-                    : 'bg-[#141824] text-gray-400 hover:text-gray-200'
-                }`}
-              >
-                <Store className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                <span className="truncate">Takeaway</span>
-              </button>
-              <button
-                onClick={() => setDeliveryType('dinein')}
-                className={`py-1.5 px-1 sm:py-2 sm:px-2 rounded-lg flex items-center justify-center gap-1 font-medium transition-all min-w-0 ${
-                  deliveryType === 'dinein'
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black font-bold shadow-md'
-                    : 'bg-[#141824] text-gray-400 hover:text-gray-200'
-                }`}
-              >
-                <Utensils className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                <span className="truncate">Dine-In</span>
-              </button>
+            {/* Delivery Area Selection (Nearby Rs. 70, Medium Distance Rs. 150, Long Distance Rs. 250) */}
+            <div className="p-2 sm:p-2.5 bg-[#0e121b] border-b border-amber-500/20">
+              <div className="flex items-center justify-between text-[10px] text-gray-400 mb-1.5">
+                <span className="flex items-center gap-1 font-semibold text-amber-300">
+                  <MapPin className="w-3 h-3" />
+                  Delivery Distance / Area:
+                </span>
+                {isFreeDelivery && (
+                  <span className="text-emerald-400 font-bold">FREE DELIVERY UNLOCKED</span>
+                )}
+              </div>
+              <div className="grid grid-cols-3 gap-1">
+                {deliveryTiers.map((tier) => {
+                  const isSelected = deliveryArea === tier.id;
+                  const label = tier.id === 'nearby' ? 'Nearby' : tier.id === 'medium' ? 'Medium Distance' : 'Long Distance';
+                  return (
+                    <button
+                      key={tier.id}
+                      type="button"
+                      onClick={() => setDeliveryArea(tier.id)}
+                      className={`py-1.5 px-1 rounded-lg border text-center transition-all flex flex-col items-center justify-center min-w-0 ${isSelected
+                          ? 'border-amber-400 bg-amber-500/20 text-white ring-1 ring-amber-400'
+                          : 'border-gray-800 bg-[#141824] text-gray-400 hover:border-gray-700'
+                        }`}
+                    >
+                      <span className="text-[10px] sm:text-[11px] font-bold truncate block w-full">
+                        {label}
+                      </span>
+                      <span className={`text-[9px] font-mono font-extrabold ${isFreeDelivery ? 'text-emerald-400' : 'text-[#e6b343]'}`}>
+                        {isFreeDelivery ? 'FREE' : `Rs. ${tier.fee}`}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Cart Items List */}
@@ -170,7 +174,7 @@ export default function CartDrawer() {
                   <div>
                     <h4 className="text-base font-bold text-white mb-1">Your Bag is Empty</h4>
                     <p className="text-xs text-gray-400 max-w-xs">
-                      Please select your favorite Biryani, Sides, or Ice Cream from our menu.
+                      Please select your favorite Biryani, Pulao, Sides, Chilled Drinks, or Ice Cream from our menu.
                     </p>
                   </div>
                   <button
@@ -182,16 +186,20 @@ export default function CartDrawer() {
                 </div>
               ) : (
                 cartItems.map((item) => (
-                  <div 
+                  <div
                     key={item.cartItemId}
                     className="bg-[#151a26] border border-amber-500/15 rounded-xl p-3 flex gap-3 hover:border-amber-500/40 transition-all relative group shadow-md"
                   >
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="w-16 h-16 rounded-lg object-cover flex-shrink-0 border border-gray-800"
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className={`w-16 h-16 rounded-lg flex-shrink-0 border border-gray-800 ${
+                        item.image?.includes('/images/') && !item.image?.includes('mpc') && !item.image?.includes('menu') && !item.image?.includes('restaurant')
+                          ? 'object-contain bg-white p-1'
+                          : 'object-cover'
+                      }`}
                     />
-                    
+
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-1">
                         <h4 className="text-sm font-bold text-white truncate">{item.name}</h4>
@@ -267,7 +275,7 @@ export default function CartDrawer() {
                   <form onSubmit={handleApplyCoupon} className="flex gap-2">
                     <div className="relative flex-1">
                       <Tag className="w-3.5 h-3.5 absolute left-3 top-3 text-amber-400/70" />
-                      <input 
+                      <input
                         type="text"
                         placeholder="Coupon Code (e.g. MADINA10)"
                         value={couponInput}
@@ -291,7 +299,7 @@ export default function CartDrawer() {
                   {!couponCode && (
                     <div className="flex gap-1.5 mt-1.5 text-[10px] text-gray-400">
                       <span>Try promo:</span>
-                      <button 
+                      <button
                         type="button"
                         onClick={() => { setCouponInput('MADINA10'); applyCoupon('MADINA10'); }}
                         className="text-[#e6b343] underline font-bold"
@@ -321,7 +329,7 @@ export default function CartDrawer() {
                   <div className="flex justify-between">
                     <span>Delivery Charges:</span>
                     <span className={deliveryFee === 0 ? 'text-emerald-400 font-bold' : 'text-white'}>
-                      {deliveryFee === 0 ? 'FREE DELIVERY (Orders Rs. 2000+)' : `Rs. ${deliveryFee}`}
+                      {deliveryFee === 0 ? 'FREE DELIVERY (Orders Rs. 3000+)' : `Rs. ${deliveryFee} (${activeTier?.name || 'Standard'})`}
                     </span>
                   </div>
                   <div className="flex justify-between text-base font-extrabold text-white pt-2 border-t border-gray-800">

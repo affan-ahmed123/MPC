@@ -1,3 +1,9 @@
+export const DELIVERY_TIERS = [
+  { id: 'nearby', name: 'Nearby Area', shortName: 'Nearby', fee: 70, desc: 'Local & nearby area delivery' },
+  { id: 'medium', name: 'Medium Distance', shortName: 'Medium Distance', fee: 150, desc: 'Medium distance delivery' },
+  { id: 'outside', name: 'Long Distance', shortName: 'Long Distance', fee: 250, desc: 'Long distance delivery' },
+];
+
 export const SHOP_CONFIG = {
   name: "Madina Pakwan Center",
   shortName: "Madina Pakwan Center (MPC)",
@@ -6,25 +12,27 @@ export const SHOP_CONFIG = {
   subSlogan: "Delicious Food • Premium Taste • Your Choice",
   iceCreamTagline: "Premium Ice Cream For a Sweeter Moment",
   iceCreamSub: "Rich Flavors • Creamy Delight • Pure Happiness",
-  phone: "+92 300 1234567",
-  whatsappNumber: "923001234567",
-  address: "Main Commercial Area, Near City Chowk",
+  phone: "+92 314 1281986",
+  whatsappNumber: "923141281986",
+  address: "Near 10 Number Market, Orangi Town",
   city: "Karachi, Pakistan",
   timings: "Daily: 11:30 AM - 1:30 AM",
-  deliveryFee: 100,
-  freeDeliveryThreshold: 2000, // FREE delivery on orders Rs. 2000 and above
+  deliveryFee: 70,
+  freeDeliveryThreshold: 3000, // FREE delivery on orders Rs. 3000 and above
   minOrder: 100,
+  deliveryTiers: DELIVERY_TIERS
 };
 
 export const MENU_CATEGORIES = [
   { id: 'all', name: 'All Items', icon: 'Sparkles' },
   { id: 'biryani', name: 'Biryani & Pulao', icon: 'Flame' },
-  { id: 'extras', name: 'Raita, Sides & Drinks', icon: 'Coffee' },
+  { id: 'salad-raita', name: 'Salad & Raita', icon: 'Utensils' },
+  { id: 'drinks', name: 'Chilled Drinks & Juices', icon: 'Coffee' },
   { id: 'icecream', name: 'Ice Cream', icon: 'IceCream' }
 ];
 
 export const MENU_ITEMS = [
-  // --- 1. BIRYANI & PULAO SECTION (From Menu Card 1) ---
+  // --- 1. BIRYANI & PULAO SECTION ---
   {
     id: 'chicken-biryani',
     category: 'biryani',
@@ -55,7 +63,7 @@ export const MENU_ITEMS = [
     hasPortions: true,
     startingPrice: 200,
     portions: [
-      { id: 'pao', name: 'Quarter Portion (250g)', price: 200, piece: '1 Pao (250g)' },
+      { id: 'pao', name: 'Quarter Portion (250g)', price: 200, piece: '1 Pao (250g) Tender Beef Pulao' },
       { id: 'half-kg', name: 'Half Kg (500g)', price: 400, piece: '2 Pao / Half Kg (500g)' },
       { id: 'teen-pao', name: '3 Quarter Portion (750g)', price: 600, piece: '3 Pao / 750g Serving' },
       { id: 'one-kg', name: '1 Kg (1000g)', price: 800, piece: '4 Pao / Full 1 Kg Family Pack' },
@@ -98,14 +106,14 @@ export const MENU_ITEMS = [
     serves: '1 to 3 Persons'
   },
 
-  // --- 2. RAITA, SIDES & DRINKS SECTION (Positioned right above Ice Cream as requested) ---
+  // --- 2. SALAD & RAITA SECTION (Together in one dedicated section) ---
   {
     id: 'millac-raita',
-    category: 'extras',
-    name: 'Millac Special Mint & Cumin Raita',
+    category: 'salad-raita',
+    name: 'Raita',
     badge: 'Must-Have Side',
     description: 'Chilled creamy yogurt dip infused with roasted cumin seeds, crushed mint leaves, green chillies, and secret herbs.',
-    image: 'https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?w=800&auto=format&fit=crop&q=80',
+    image: '/images/raita.jpg',
     hasPortions: false,
     startingPrice: 60,
     price: 60,
@@ -113,38 +121,23 @@ export const MENU_ITEMS = [
   },
   {
     id: 'fresh-salad',
-    category: 'extras',
-    name: 'Fresh Kachumar Garden Salad',
+    category: 'salad-raita',
+    name: 'Salad',
     badge: 'Fresh & Crisp',
     description: 'Crisp sliced onions, garden cucumbers, juicy tomatoes, and green lemon wedges seasoned with chaat masala.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&auto=format&fit=crop&q=80',
+    image: '/images/salad.png',
     hasPortions: false,
     startingPrice: 40,
     price: 40,
     portionLabel: '1 Fresh Plate Serving'
   },
   {
-    id: 'cold-drinks',
-    category: 'extras',
-    name: 'Chilled Soft Drinks & Beverages',
-    badge: 'Ice Chilled',
-    description: 'Pepsi, Coca-Cola, 7Up, Pakola, or Mountain Dew (mention preferred flavor in order instructions).',
-    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&auto=format&fit=crop&q=80',
-    hasPortions: true,
-    startingPrice: 70,
-    portions: [
-      { id: 'can-345ml', name: 'Regular 345ml Bottle', price: 70, piece: 'Single Drink' },
-      { id: 'can-500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Drink' },
-      { id: 'jumbo-1.5l', name: '1.5 Litre Family Bottle', price: 230, piece: 'Family Pack' },
-    ]
-  },
-  {
     id: 'mineral-water',
-    category: 'extras',
-    name: 'Chilled Mineral Water',
+    category: 'salad-raita',
+    name: 'Water Bottle',
     badge: 'Pure & Crisp',
     description: 'Fresh, pure, crystal-clear chilled drinking mineral water sealed in hygienic bottles.',
-    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=800&auto=format&fit=crop&q=80',
+    image: '/images/water-bottle.jpg',
     hasPortions: true,
     hasTwoButtons: true,
     startingPrice: 60,
@@ -154,7 +147,145 @@ export const MENU_ITEMS = [
     ]
   },
 
-  // --- 3. ICE CREAM MENU SECTION (Dessert at the bottom) ---
+  // --- 3. DEDICATED DRINKS & JUICES SECTION ---
+  // Standard Sodas with 4 sizes: 300ml (90), 500ml (120), 1.5L (220), 2.5L (280)
+  {
+    id: 'pepsi',
+    category: 'drinks',
+    name: 'Pepsi',
+    badge: 'Chilled Soda',
+    description: 'Classic ice-chilled refreshing Pepsi. Available in 300ml, 500ml, 1.5L and 2.5L jumbo family bottles.',
+    image: '/images/pepsi.jpg',
+    hasPortions: true,
+    startingPrice: 90,
+    portions: [
+      { id: '300ml', name: '300ml Regular Bottle', price: 90, piece: 'Single Chilled 300ml' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Chilled 500ml' },
+      { id: '1.5l', name: '1.5 Litre Family Bottle', price: 220, piece: 'Family Chilled 1.5L' },
+      { id: '2.5l', name: '2.5 Litre Jumbo Bottle', price: 280, piece: 'Mega Party Size 2.5L' },
+    ]
+  },
+  {
+    id: '7up',
+    category: 'drinks',
+    name: '7Up',
+    badge: 'Chilled Soda',
+    description: 'Crisp, sparkling lemon-lime refreshment. Perfect pairing with Biryani and Pulao.',
+    image: '/images/7up.jpg',
+    hasPortions: true,
+    startingPrice: 90,
+    portions: [
+      { id: '300ml', name: '300ml Regular Bottle', price: 90, piece: 'Single Chilled 300ml' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Chilled 500ml' },
+      { id: '1.5l', name: '1.5 Litre Family Bottle', price: 220, piece: 'Family Chilled 1.5L' },
+      { id: '2.5l', name: '2.5 Litre Jumbo Bottle', price: 280, piece: 'Mega Party Size 2.5L' },
+    ]
+  },
+  {
+    id: 'sprite',
+    category: 'drinks',
+    name: 'Sprite',
+    badge: 'Chilled Soda',
+    description: 'Clear, crisp lemon-lime sparkling taste served ice-cold to beat the spice.',
+    image: '/images/sprite.jpg',
+    hasPortions: true,
+    startingPrice: 90,
+    portions: [
+      { id: '300ml', name: '300ml Regular Bottle', price: 90, piece: 'Single Chilled 300ml' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Chilled 500ml' },
+      { id: '1.5l', name: '1.5 Litre Family Bottle', price: 220, piece: 'Family Chilled 1.5L' },
+      { id: '2.5l', name: '2.5 Litre Jumbo Bottle', price: 280, piece: 'Mega Party Size 2.5L' },
+    ]
+  },
+  {
+    id: 'dew',
+    category: 'drinks',
+    name: 'Mountain Dew',
+    badge: 'Citrus Kick',
+    description: 'Bold, invigorating citrus flavor with high energy charge served chilled.',
+    image: '/images/dew.png',
+    hasPortions: true,
+    startingPrice: 90,
+    portions: [
+      { id: '300ml', name: '300ml Regular Bottle', price: 90, piece: 'Single Chilled 300ml' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Chilled 500ml' },
+      { id: '1.5l', name: '1.5 Litre Family Bottle', price: 220, piece: 'Family Chilled 1.5L' },
+      { id: '2.5l', name: '2.5 Litre Jumbo Bottle', price: 280, piece: 'Mega Party Size 2.5L' },
+    ]
+  },
+  {
+    id: 'cola-next',
+    category: 'drinks',
+    name: 'Cola Next',
+    badge: 'Popular Choice',
+    description: 'Delicious national favorite cola with rich fizz and refreshing taste.',
+    image: '/images/cola-next.png',
+    hasPortions: true,
+    startingPrice: 90,
+    portions: [
+      { id: '300ml', name: '300ml Regular Bottle', price: 90, piece: 'Single Chilled 300ml' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Chilled 500ml' },
+      { id: '1.5l', name: '1.5 Litre Family Bottle', price: 220, piece: 'Family Chilled 1.5L' },
+      { id: '2.5l', name: '2.5 Litre Jumbo Bottle', price: 280, piece: 'Mega Party Size 2.5L' },
+    ]
+  },
+  {
+    id: 'fizz-up',
+    category: 'drinks',
+    name: 'Fizz Up',
+    badge: 'Clear Fizz',
+    description: 'Crisp and bubbly lemon-lime soda for instant refreshment.',
+    image: '/images/fizz-up.jpg',
+    hasPortions: true,
+    startingPrice: 90,
+    portions: [
+      { id: '300ml', name: '300ml Regular Bottle', price: 90, piece: 'Single Chilled 300ml' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Chilled 500ml' },
+      { id: '1.5l', name: '1.5 Litre Family Bottle', price: 220, piece: 'Family Chilled 1.5L' },
+      { id: '2.5l', name: '2.5 Litre Jumbo Bottle', price: 280, piece: 'Mega Party Size 2.5L' },
+    ]
+  },
+  {
+    id: 'sting',
+    category: 'drinks',
+    name: 'Sting',
+    badge: 'Energy Boost ⚡',
+    description: 'High-energy sweet berry punch flavor served ice-chilled for an instant boost.',
+    image: '/images/sting.jpg',
+    hasPortions: true,
+    hasTwoButtons: true,
+    startingPrice: 100,
+    portions: [
+      { id: '300ml', name: '300ml Regular', price: 100, piece: '300ml Chilled Bottle' },
+      { id: '500ml', name: '500ml Pet Bottle', price: 140, piece: '500ml Chilled Bottle' },
+    ]
+  },
+  {
+    id: 'slice-juice',
+    category: 'drinks',
+    name: 'Slice Juice',
+    badge: 'Thick Mango Nectar 🥭',
+    description: 'Rich, thick, sweet Alphonso mango nectar juice served chilled.',
+    image: '/images/slice-juice.jpg',
+    hasPortions: false,
+    startingPrice: 70,
+    price: 70,
+    portionLabel: '1 Chilled Pack / Bottle (Rs. 70)'
+  },
+  {
+    id: 'pakola',
+    category: 'drinks',
+    name: 'Pakola Juice',
+    badge: 'Karachi Classic 💚',
+    description: 'Delicious Zafran with Almonds & Cardamom milk drink and traditional flavor, sweet and aromatic.',
+    image: '/images/pakola-juice.jpg',
+    hasPortions: false,
+    startingPrice: 110,
+    price: 110,
+    portionLabel: '1 Chilled Pack / Bottle (Rs. 110)'
+  },
+
+  // --- 4. ARTISANAL ICE CREAM MENU SECTION ---
   {
     id: 'icecream-flavors',
     category: 'icecream',
@@ -256,7 +387,7 @@ export const MENU_ITEMS = [
         tag: 'Pure Classic 🍦',
         desc: 'Finest pure vanilla beans infused into thick, velvety rich dairy cream in a cup.',
         color: '#fef9c3',
-        image: 'https://images.unsplash.com/photo-1560008511-11c63416e52d?w=600&auto=format&fit=crop&q=80'
+        image: '/images/vanilla-icecream.jpg'
       }
     ]
   }

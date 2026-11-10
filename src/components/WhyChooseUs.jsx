@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={idx}
-                className="bg-[#121622]/85 backdrop-blur-md border border-gray-800/90 hover:border-[#e6b343]/50 rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center transition-all duration-300 hover:-translate-y-1 group shadow-xl flex flex-col justify-between min-w-0 w-full overflow-hidden"
+                className="bg-[#121622] border border-gray-800/90 hover:border-[#e6b343]/50 rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center transition-all duration-200 hover:-translate-y-1 group shadow-xl flex flex-col justify-between min-w-0 w-full overflow-hidden"
               >
                 <div>
                   <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl bg-amber-500/10 border border-amber-500/20 text-[#e6b343] flex items-center justify-center mx-auto mb-2 sm:mb-4 group-hover:scale-110 transition-transform shadow-md">
