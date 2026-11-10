@@ -33,14 +33,14 @@ export const MENU_ITEMS = [
     description: 'Aromatic long-grain basmati rice cooked with juicy chicken, rich saffron layers, potatoes, and traditional Madina spices slow dum-cooked to perfection.',
     image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80',
     hasPortions: true,
-    startingPrice: 160,
+    startingPrice: 170,
     portions: [
-      { id: 'pao', name: 'Quarter Portion (250g)', price: 160, piece: 'Quarter Portion (250g)' },
-      { id: 'derh-pao', name: 'Single Serving (375g)', price: 220, piece: 'Standard Single Serving (375g)' },
-      { id: 'half-single', name: 'Half Kg - Single Piece', price: 260, piece: '500g Rice with 1 Big Juicy Piece' },
-      { id: 'half-double', name: 'Half Kg - Double Piece', price: 320, piece: '500g Rice with 2 Juicy Chicken Pieces' },
-      { id: 'one-double', name: '1 Kg - Double Piece', price: 500, piece: '1000g Family Pack with 2 Pieces' },
-      { id: 'one-four', name: '1 Kg - 4 Pieces', price: 640, piece: '1000g Mega Family Feast with 4 Pieces' },
+      { id: 'pao', name: 'Quarter Portion (250g)', price: 170, piece: 'Quarter Portion (250g)' },
+      { id: 'derh-pao', name: 'Single Serving (375g)', price: 230, piece: 'Standard Single Serving (375g)' },
+      { id: 'half-single', name: 'Half Kg - Single Piece', price: 280, piece: '500g Rice with 1 Big Juicy Piece' },
+      { id: 'half-double', name: 'Half Kg - Double Piece', price: 340, piece: '500g Rice with 2 Juicy Chicken Pieces' },
+      { id: 'one-double', name: '1 Kg - Double Piece', price: 540, piece: '1000g Family Pack with 2 Pieces' },
+      { id: 'one-four', name: '1 Kg - 4 Pieces', price: 680, piece: '1000g Mega Family Feast with 4 Pieces' },
     ],
     spiceLevel: 'Medium Spicy',
     serves: '1 to 4 Persons'
@@ -53,12 +53,12 @@ export const MENU_ITEMS = [
     description: 'Slow-cooked melt-in-mouth beef simmered in rich bone broth yakhni with seasoned long grain basmati rice, caramelized onions, and whole spices.',
     image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&auto=format&fit=crop&q=80',
     hasPortions: true,
-    startingPrice: 180,
+    startingPrice: 200,
     portions: [
-      { id: 'pao', name: 'Quarter Portion (250g)', price: 180, piece: 'Quarter Portion' },
-      { id: 'derh-pao', name: 'Single Serving (375g)', price: 260, piece: 'Medium Serving' },
-      { id: 'half-kg', name: 'Half Kg (500g)', price: 350, piece: 'Half Kg with Succulent Beef Chunks' },
-      { id: 'one-kg', name: '1 Kg (1000g)', price: 700, piece: 'Full 1 Kg Family Feast' },
+      { id: 'pao', name: 'Quarter Portion (250g)', price: 200, piece: 'Quarter Portion' },
+      { id: 'derh-pao', name: 'Single Serving (375g)', price: 290, piece: 'Medium Serving' },
+      { id: 'half-kg', name: 'Half Kg (500g)', price: 390, piece: 'Half Kg with Succulent Beef Chunks' },
+      { id: 'one-kg', name: '1 Kg (1000g)', price: 780, piece: 'Full 1 Kg Family Feast' },
     ],
     spiceLevel: 'Aromatic & Mild Spice',
     serves: '1 to 4 Persons'
@@ -136,6 +136,21 @@ export const MENU_ITEMS = [
       { id: 'can-345ml', name: 'Regular 345ml Bottle', price: 70, piece: 'Single Drink' },
       { id: 'can-500ml', name: '500ml Pet Bottle', price: 120, piece: 'Medium Drink' },
       { id: 'jumbo-1.5l', name: '1.5 Litre Family Bottle', price: 230, piece: 'Family Pack' },
+    ]
+  },
+  {
+    id: 'mineral-water',
+    category: 'extras',
+    name: 'Chilled Mineral Water',
+    badge: 'Pure & Crisp',
+    description: 'Fresh, pure, crystal-clear chilled drinking mineral water sealed in hygienic bottles.',
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=800&auto=format&fit=crop&q=80',
+    hasPortions: true,
+    hasTwoButtons: true,
+    startingPrice: 60,
+    portions: [
+      { id: 'small-water', name: 'Small Bottle (500ml)', price: 60, piece: '500ml Chilled Bottle' },
+      { id: 'large-water', name: 'Large Bottle (1.5 Litre)', price: 120, piece: '1.5L Family Chilled Bottle' },
     ]
   },
 

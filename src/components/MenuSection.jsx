@@ -263,11 +263,11 @@ export default function MenuSection() {
             <div className="flex items-center gap-2 mb-6">
               <span className="w-2.5 h-6 bg-[#e6b343] rounded-full shadow-sm shadow-amber-400" />
               <h3 className="text-xl sm:text-2xl font-bold font-serif text-white tracking-wide">
-                Raita, Fresh Salad & Cold Drinks
+                Raita, Fresh Salad, Drinks & Mineral Water
               </h3>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5 w-full max-w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-5 w-full max-w-full">
               {filteredItems.filter(item => item.category === 'extras').map((item, idx, arr) => {
                 const isSingleSpan = arr.length % 2 !== 0 && idx === arr.length - 1;
                 return (
@@ -294,35 +294,71 @@ export default function MenuSection() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between gap-1.5 pt-2 border-t border-gray-800">
-                      <div>
-                        <span className="text-xs sm:text-base font-extrabold text-[#e6b343]">
-                          Rs. {item.price || item.startingPrice}
-                        </span>
-                        {item.portionLabel && (
-                          <span className="text-[9px] sm:text-[10px] text-gray-400 block truncate">{item.portionLabel}</span>
+                    {item.hasTwoButtons ? (
+                      <div className="pt-2 border-t border-gray-800 space-y-1.5 w-full">
+                        <div className="flex items-center justify-between text-[10px] text-gray-400">
+                          <span className="font-semibold text-amber-300">Select Bottle:</span>
+                          <span className="text-[#e6b343] font-mono font-bold">Rs. 60 / 120</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-1.5 w-full">
+                          <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => addToCart(item, item.portions[0], null, 1)}
+                            className="py-1.5 px-1 rounded-lg bg-[#181d2a] hover:bg-amber-500/20 text-white hover:text-amber-300 border border-amber-500/30 font-bold transition-all flex flex-col items-center justify-center text-center shadow-sm"
+                            title="Add Small 500ml Bottle for Rs. 60"
+                          >
+                            <span className="text-[9px] text-gray-300 flex items-center gap-0.5">
+                              <Plus className="w-2.5 h-2.5 text-amber-400" />
+                              Small
+                            </span>
+                            <span className="text-[11px] sm:text-xs font-black text-[#e6b343] font-mono">Rs. 60</span>
+                          </motion.button>
+
+                          <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => addToCart(item, item.portions[1], null, 1)}
+                            className="py-1.5 px-1 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-black font-extrabold transition-all flex flex-col items-center justify-center text-center shadow-md shadow-amber-500/20"
+                            title="Add Large 1.5L Bottle for Rs. 120"
+                          >
+                            <span className="text-[9px] text-black/80 font-bold flex items-center gap-0.5">
+                              <Plus className="w-2.5 h-2.5 text-black" />
+                              Large
+                            </span>
+                            <span className="text-[11px] sm:text-xs font-black text-black font-mono">Rs. 120</span>
+                          </motion.button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-between gap-1.5 pt-2 border-t border-gray-800">
+                        <div>
+                          <span className="text-xs sm:text-base font-extrabold text-[#e6b343]">
+                            Rs. {item.price || item.startingPrice}
+                          </span>
+                          {item.portionLabel && (
+                            <span className="text-[9px] sm:text-[10px] text-gray-400 block truncate">{item.portionLabel}</span>
+                          )}
+                        </div>
+
+                        {item.hasPortions ? (
+                          <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => handleOpenPortion(item)}
+                            className="py-1.5 px-2.5 sm:px-3 rounded-lg bg-gray-800 hover:bg-[#e6b343] hover:text-black text-[11px] sm:text-xs font-bold transition-all text-gray-200 text-center flex-shrink-0"
+                          >
+                            Select Size
+                          </motion.button>
+                        ) : (
+                          <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => addToCart(item, null, null, 1)}
+                            className="py-1.5 px-2.5 sm:px-3.5 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-black text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 shadow shadow-amber-500/20 flex-shrink-0"
+                          >
+                            <Plus className="w-3 h-3 stroke-[3]" />
+                            <span>Add</span>
+                          </motion.button>
                         )}
                       </div>
-
-                      {item.hasPortions ? (
-                        <motion.button
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleOpenPortion(item)}
-                          className="py-1.5 px-2.5 sm:px-3 rounded-lg bg-gray-800 hover:bg-[#e6b343] hover:text-black text-[11px] sm:text-xs font-bold transition-all text-gray-200 text-center flex-shrink-0"
-                        >
-                          Select Size
-                        </motion.button>
-                      ) : (
-                        <motion.button
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => addToCart(item, null, null, 1)}
-                          className="py-1.5 px-2.5 sm:px-3.5 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 hover:brightness-110 text-black text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 shadow shadow-amber-500/20 flex-shrink-0"
-                        >
-                          <Plus className="w-3 h-3 stroke-[3]" />
-                          <span>Add</span>
-                        </motion.button>
-                      )}
-                    </div>
+                    )}
                   </motion.div>
                 );
               })}

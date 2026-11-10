@@ -129,7 +129,7 @@ export default function Hero() {
               <Flame className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <h4 className="font-bold text-white text-xs sm:text-sm truncate">Chicken Biryani</h4>
-            <p className="text-[11px] sm:text-xs text-amber-400 font-extrabold mt-0.5">Starts Rs. 160</p>
+            <p className="text-[11px] sm:text-xs text-amber-400 font-extrabold mt-0.5">Starts Rs. 170</p>
             <p className="text-[9px] sm:text-[11px] text-gray-300 mt-0.5 truncate">Pao to 1 KG Family Pack</p>
           </motion.div>
 
@@ -141,7 +141,7 @@ export default function Hero() {
               <Flame className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <h4 className="font-bold text-white text-xs sm:text-sm truncate">Beef Yakhni Pulao</h4>
-            <p className="text-[11px] sm:text-xs text-amber-400 font-extrabold mt-0.5">Starts Rs. 180</p>
+            <p className="text-[11px] sm:text-xs text-amber-400 font-extrabold mt-0.5">Starts Rs. 200</p>
             <p className="text-[9px] sm:text-[11px] text-gray-300 mt-0.5 truncate">Rich Stock & Tender Beef</p>
           </motion.div>
 

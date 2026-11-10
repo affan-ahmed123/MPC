@@ -6,7 +6,7 @@ export default function ReviewsSection() {
   return (
     <section id="reviews" className="py-10 sm:py-20 bg-black/20 backdrop-blur-sm relative w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 w-full max-w-full">
-        
+
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 text-amber-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-2">
             <Sparkles className="w-3.5 h-3.5" />
@@ -22,12 +22,12 @@ export default function ReviewsSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-6 w-full max-w-full">
           {TESTIMONIALS.map((review, idx) => (
-            <div 
+            <div
               key={idx}
               className="bg-[#141926]/85 backdrop-blur-md border border-gray-800 rounded-xl sm:rounded-2xl p-2.5 sm:p-6 relative flex flex-col justify-between hover:border-amber-500/40 transition-all shadow-xl min-w-0 w-full overflow-hidden"
             >
               <Quote className="w-5 h-5 sm:w-8 sm:h-8 text-amber-500/20 absolute top-2 right-2 sm:top-4 sm:right-4 pointer-events-none" />
-              
+
               <div>
                 <div className="flex items-center gap-0.5 sm:gap-1 mb-1.5 sm:mb-3">
                   {[...Array(review.rating)].map((_, i) => (
