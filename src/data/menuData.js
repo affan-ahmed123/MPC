@@ -55,10 +55,10 @@ export const MENU_ITEMS = [
     hasPortions: true,
     startingPrice: 200,
     portions: [
-      { id: 'pao', name: 'Quarter Portion (250g)', price: 200, piece: 'Quarter Portion' },
-      { id: 'derh-pao', name: 'Single Serving (375g)', price: 290, piece: 'Medium Serving' },
-      { id: 'half-kg', name: 'Half Kg (500g)', price: 390, piece: 'Half Kg with Succulent Beef Chunks' },
-      { id: 'one-kg', name: '1 Kg (1000g)', price: 780, piece: 'Full 1 Kg Family Feast' },
+      { id: 'pao', name: 'Quarter Portion (250g)', price: 200, piece: '1 Pao (250g)' },
+      { id: 'half-kg', name: 'Half Kg (500g)', price: 400, piece: '2 Pao / Half Kg (500g)' },
+      { id: 'teen-pao', name: '3 Quarter Portion (750g)', price: 600, piece: '3 Pao / 750g Serving' },
+      { id: 'one-kg', name: '1 Kg (1000g)', price: 800, piece: '4 Pao / Full 1 Kg Family Pack' },
     ],
     spiceLevel: 'Aromatic & Mild Spice',
     serves: '1 to 4 Persons'
@@ -170,90 +170,90 @@ export const MENU_ITEMS = [
       { id: '2-scoop', name: 'Double Scoop Cup', price: 220, piece: 'Two Scoops in Chilled Cup (Save Rs. 20)' }
     ],
     flavors: [
-      { 
-        id: 'king-kulfa', 
-        name: 'King Kulfa (Special)', 
-        tag: 'House Special ⭐', 
+      {
+        id: 'king-kulfa',
+        name: 'King Kulfa (Special)',
+        tag: 'House Special ⭐',
         desc: 'Traditional condensed milk, crushed almonds, pistachios & royal saffron essence served in a cup.',
         color: '#facc15',
         image: 'https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'r-chocolate', 
-        name: 'R Chocolate (Rich Dark)', 
-        tag: 'Chocolate Lover 🍫', 
+      {
+        id: 'r-chocolate',
+        name: 'R Chocolate (Rich Dark)',
+        tag: 'Chocolate Lover 🍫',
         desc: 'Decadent deep Belgian cocoa fudge with velvety dark chocolate ribbons in a dessert cup.',
         color: '#582f0e',
         image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'pista', 
-        name: 'Pista (Royal Pistachio)', 
-        tag: 'Nutty Delight 🥜', 
+      {
+        id: 'pista',
+        name: 'Pista (Royal Pistachio)',
+        tag: 'Nutty Delight 🥜',
         desc: 'Rich dairy cream infused with crushed roasted Iranian green pistachios served in a cup.',
         color: '#84cc16',
         image: 'https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'caramel-crunch', 
-        name: 'Caramel Crunch', 
-        tag: 'Crunchy Treat 🍯', 
+      {
+        id: 'caramel-crunch',
+        name: 'Caramel Crunch',
+        tag: 'Crunchy Treat 🍯',
         desc: 'Golden buttery caramel ripple loaded with crunchy toasted praline pieces in a cup.',
         color: '#d97706',
         image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'mango', 
-        name: 'Mango Delight', 
-        tag: 'Tropical Alphonso 🥭', 
+      {
+        id: 'mango',
+        name: 'Mango Delight',
+        tag: 'Tropical Alphonso 🥭',
         desc: 'Real sun-kissed mango pulp blended with rich fresh dairy cream in a chilled cup.',
         color: '#f59e0b',
         image: 'https://images.unsplash.com/photo-1594998893017-36147cbcae05?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'strawberry', 
-        name: 'Strawberry Bliss', 
-        tag: 'Berry Sweet 🍓', 
+      {
+        id: 'strawberry',
+        name: 'Strawberry Bliss',
+        tag: 'Berry Sweet 🍓',
         desc: 'Juicy ripe field strawberries churned into smooth, luscious pink cream in a cup.',
         color: '#ff4d6d',
         image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'butterscotch', 
-        name: 'Butterscotch Royal', 
-        tag: 'Classic Gold 🧈', 
+      {
+        id: 'butterscotch',
+        name: 'Butterscotch Royal',
+        tag: 'Classic Gold 🧈',
         desc: 'Caramelized brown sugar and butter with sweet molasses crunch nuggets in a cup.',
         color: '#ea580c',
         image: 'https://images.unsplash.com/photo-1557142046-c704a3adf364?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'cheesecake', 
-        name: 'New York Cheesecake', 
-        tag: 'Gourmet Dessert 🍰', 
+      {
+        id: 'cheesecake',
+        name: 'New York Cheesecake',
+        tag: 'Gourmet Dessert 🍰',
         desc: 'Smooth cream cheese gelato swirled with buttery graham biscuit crust in a dessert cup.',
         color: '#fcd34d',
         image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'king-kulfa-economy', 
-        name: 'King Kulfa Economy', 
-        tag: 'Classic Value 🍨', 
+      {
+        id: 'king-kulfa-economy',
+        name: 'King Kulfa Economy',
+        tag: 'Classic Value 🍨',
         desc: 'Authentic traditional kulfa flavor with rich condensed milk sweetness in a takeaway cup.',
         color: '#fef08a',
         image: 'https://images.unsplash.com/photo-1580915411954-282cb1b0d780?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'cotton-candy', 
-        name: 'Cotton Candy Dream', 
-        tag: 'Carnival Fun 🎪', 
+      {
+        id: 'cotton-candy',
+        name: 'Cotton Candy Dream',
+        tag: 'Carnival Fun 🎪',
         desc: 'Pastel spun-sugar carnival sweetness served in a colorful dessert cup.',
         color: '#ec4899',
         image: 'https://images.unsplash.com/photo-1516559828984-fb3b99548b21?w=600&auto=format&fit=crop&q=80'
       },
-      { 
-        id: 'dairy-vanilla', 
-        name: 'Dairy Pure Vanilla', 
-        tag: 'Pure Classic 🍦', 
+      {
+        id: 'dairy-vanilla',
+        name: 'Dairy Pure Vanilla',
+        tag: 'Pure Classic 🍦',
         desc: 'Finest pure vanilla beans infused into thick, velvety rich dairy cream in a cup.',
         color: '#fef9c3',
         image: 'https://images.unsplash.com/photo-1560008511-11c63416e52d?w=600&auto=format&fit=crop&q=80'
