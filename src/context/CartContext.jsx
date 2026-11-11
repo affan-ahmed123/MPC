@@ -61,8 +61,6 @@ export const CartProvider = ({ children }) => {
   const [lastOrder, setLastOrder] = useState(null);
   const [orderInstructions, setOrderInstructions] = useState('');
   const [deliveryType, setDeliveryType] = useState('delivery'); // 'delivery', 'takeaway', 'dinein'
-  const [couponCode, setCouponCode] = useState('');
-  const [discountAmount, setDiscountAmount] = useState(0);
   const [activeCategory, setActiveCategory] = useState('all');
 
   // Persist cart
@@ -148,30 +146,10 @@ export const CartProvider = ({ children }) => {
   // Clear Cart
   const clearCart = () => {
     setCartItems([]);
-    setDiscountAmount(0);
-    setCouponCode('');
-  };
-
-  // Apply Coupon
-  const applyCoupon = (code) => {
-    const clean = (code || '').trim().toUpperCase();
-    if (clean === 'MADINA10' || clean === 'WELCOME10') {
-      const sub = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
-      const disc = Math.round(sub * 0.1);
-      setDiscountAmount(disc);
-      setCouponCode(clean);
-      return { success: true, message: '10% discount voucher applied!' };
-    } else if (clean === 'FIRST50') {
-      setDiscountAmount(50);
-      setCouponCode(clean);
-      return { success: true, message: 'Rs. 50 voucher discount applied!' };
-    } else {
-      return { success: false, message: 'Invalid coupon code. Try MADINA10' };
-    }
   };
 
   // Totals & Tiered Delivery Calculation
-  const totalItemCount = cartItems.reduce((acc, it) => acc + it.quantity, 0);
+  const totalItemCount = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
   const subtotal = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
 
   const activeTier = DELIVERY_TIERS.find(t => t.id === deliveryArea) || DELIVERY_TIERS[0];
@@ -183,7 +161,7 @@ export const CartProvider = ({ children }) => {
     ? 0
     : standardTierFee;
 
-  const totalAmount = Math.max(0, subtotal - discountAmount + deliveryFee);
+  const totalAmount = Math.max(0, subtotal + deliveryFee);
 
   // Update shop settings
   const updateShopConfig = (newSettings) => {
@@ -219,9 +197,6 @@ export const CartProvider = ({ children }) => {
         deliveryTiers: DELIVERY_TIERS,
         freeDeliveryThreshold: freeThreshold,
         isFreeDelivery,
-        couponCode,
-        discountAmount,
-        applyCoupon,
         totalItemCount,
         subtotal,
         deliveryFee,

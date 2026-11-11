@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
-import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Tag, Bike, MessageCircle, MapPin } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Bike, MessageCircle, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CartDrawer() {
@@ -14,9 +14,6 @@ export default function CartDrawer() {
     subtotal,
     deliveryFee,
     totalAmount,
-    discountAmount,
-    couponCode,
-    applyCoupon,
     deliveryType,
     setDeliveryType,
     deliveryArea,
@@ -31,18 +28,7 @@ export default function CartDrawer() {
     setActiveModal
   } = useCart();
 
-  const [couponInput, setCouponInput] = useState('');
-  const [couponMsg, setCouponMsg] = useState(null);
-
   if (!isCartOpen) return null;
-
-  const handleApplyCoupon = (e) => {
-    e.preventDefault();
-    if (!couponInput) return;
-    const res = applyCoupon(couponInput);
-    setCouponMsg(res);
-    setTimeout(() => setCouponMsg(null), 4000);
-  };
 
   const threshold = freeDeliveryThreshold || 3000;
   const remainingForFree = Math.max(0, threshold - subtotal);
@@ -269,47 +255,6 @@ export default function CartDrawer() {
                 </div>
               )}
 
-              {/* Promo Voucher Section */}
-              {cartItems.length > 0 && (
-                <div className="pt-1">
-                  <form onSubmit={handleApplyCoupon} className="flex gap-2">
-                    <div className="relative flex-1">
-                      <Tag className="w-3.5 h-3.5 absolute left-3 top-3 text-amber-400/70" />
-                      <input
-                        type="text"
-                        placeholder="Coupon Code (e.g. MADINA10)"
-                        value={couponInput}
-                        onChange={(e) => setCouponInput(e.target.value)}
-                        className="w-full bg-[#0a0d14] border border-amber-500/20 rounded-xl pl-9 pr-3 py-2 text-xs uppercase font-semibold text-white placeholder-gray-500 focus:outline-none focus:border-[#e6b343]"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="px-3.5 py-2 bg-gradient-to-r from-amber-400 to-amber-500 text-black font-bold text-xs rounded-xl hover:brightness-110 transition-all shadow-sm"
-                    >
-                      Apply
-                    </button>
-                  </form>
-
-                  {couponMsg && (
-                    <p className={`text-[11px] mt-1 ${couponMsg.success ? 'text-emerald-400' : 'text-red-400'}`}>
-                      {couponMsg.message}
-                    </p>
-                  )}
-                  {!couponCode && (
-                    <div className="flex gap-1.5 mt-1.5 text-[10px] text-gray-400">
-                      <span>Try promo:</span>
-                      <button
-                        type="button"
-                        onClick={() => { setCouponInput('MADINA10'); applyCoupon('MADINA10'); }}
-                        className="text-[#e6b343] underline font-bold"
-                      >
-                        MADINA10 (10% OFF)
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
             </div>
 
             {/* Cart Footer */}
@@ -320,12 +265,6 @@ export default function CartDrawer() {
                     <span>Subtotal:</span>
                     <span className="font-semibold text-white">Rs. {subtotal}</span>
                   </div>
-                  {discountAmount > 0 && (
-                    <div className="flex justify-between text-emerald-400">
-                      <span>Discount Voucher ({couponCode}):</span>
-                      <span>-Rs. {discountAmount}</span>
-                    </div>
-                  )}
                   <div className="flex justify-between">
                     <span>Delivery Charges:</span>
                     <span className={deliveryFee === 0 ? 'text-emerald-400 font-bold' : 'text-white'}>

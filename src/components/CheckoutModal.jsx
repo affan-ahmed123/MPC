@@ -12,8 +12,6 @@ export default function CheckoutModal() {
     subtotal,
     deliveryFee,
     totalAmount,
-    discountAmount,
-    couponCode,
     deliveryType,
     setDeliveryType,
     deliveryArea,
@@ -51,9 +49,7 @@ export default function CheckoutModal() {
     instructions: orderInstructions,
     subtotal,
     deliveryFee,
-    discount: discountAmount,
     totalAmount,
-    couponCode,
     paymentMethod,
     orderId: currentOrderId
   });
@@ -97,7 +93,6 @@ export default function CheckoutModal() {
       items: [...cartItems],
       subtotal,
       deliveryFee,
-      discountAmount,
       totalAmount,
       paymentMethod,
       orderInstructions,
@@ -341,12 +336,6 @@ export default function CheckoutModal() {
               <span>Items Subtotal:</span>
               <span className="font-semibold text-white">Rs. {subtotal}</span>
             </div>
-            {discountAmount > 0 && (
-              <div className="flex justify-between text-emerald-400">
-                <span>Voucher Discount:</span>
-                <span>-Rs. {discountAmount}</span>
-              </div>
-            )}
             <div className="flex justify-between">
               <span>Delivery Charges:</span>
               <span className={deliveryFee === 0 ? 'text-emerald-400 font-bold' : 'text-white'}>

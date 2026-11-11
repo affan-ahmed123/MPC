@@ -37,9 +37,6 @@ export function formatWhatsAppMessage({
 
   msg += `${divider}\n`;
   msg += `💵 *Subtotal:* Rs. ${subtotal}\n`;
-  if (discount > 0) {
-    msg += `🎉 *Discount Voucher (${couponCode}):* -Rs. ${discount}\n`;
-  }
   msg += `🚚 *Delivery Charges:* ${deliveryFee === 0 ? 'FREE DELIVERY (Order Rs. 3000+)' : `Rs. ${deliveryFee}`}\n`;
   msg += `💰 *TOTAL PAYABLE AMOUNT:* *Rs. ${totalAmount}*\n`;
   msg += `${divider}\n\n`;
