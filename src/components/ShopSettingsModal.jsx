@@ -46,7 +46,7 @@ export default function ShopSettingsModal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div 
+      <div
         className="relative w-full max-w-md bg-[#121622] border border-[#e6b343]/30 rounded-2xl shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
@@ -76,7 +76,7 @@ export default function ShopSettingsModal() {
               <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
               <span>WhatsApp Order Receiving Number *</span>
             </label>
-            <input 
+            <input
               type="text"
               required
               value={whatsapp}
@@ -94,7 +94,7 @@ export default function ShopSettingsModal() {
               <Phone className="w-3.5 h-3.5 text-amber-400" />
               <span>Direct Calling Phone Number</span>
             </label>
-            <input 
+            <input
               type="text"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -108,7 +108,7 @@ export default function ShopSettingsModal() {
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
               <span>Shop Address & City</span>
             </label>
-            <input 
+            <input
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
@@ -122,7 +122,7 @@ export default function ShopSettingsModal() {
               <label className="text-xs font-semibold text-gray-300 block mb-1">
                 Standard Delivery Fee (Rs)
               </label>
-              <input 
+              <input
                 type="number"
                 value={deliveryFee}
                 onChange={(e) => setDeliveryFee(e.target.value)}
@@ -133,7 +133,7 @@ export default function ShopSettingsModal() {
               <label className="text-xs font-semibold text-gray-300 block mb-1">
                 Free Delivery Above (Rs)
               </label>
-              <input 
+              <input
                 type="number"
                 value={freeThreshold}
                 onChange={(e) => setFreeThreshold(e.target.value)}

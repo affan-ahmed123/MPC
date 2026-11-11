@@ -83,8 +83,8 @@ export default function MenuSection() {
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 flex-shrink-0 ${isSelected
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-lg shadow-amber-500/25 ring-1 ring-amber-300'
-                    : 'bg-[#121622]/85 text-gray-300 hover:text-white hover:bg-[#1a202c] border border-amber-500/20'
+                  ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-lg shadow-amber-500/25 ring-1 ring-amber-300'
+                  : 'bg-[#121622]/85 text-gray-300 hover:text-white hover:bg-[#1a202c] border border-amber-500/20'
                   }`}
               >
                 <span>{cat.name}</span>
@@ -247,17 +247,15 @@ export default function MenuSection() {
                 >
                   <div>
                     {/* Image Banner */}
-                    <div className={`h-28 sm:h-36 relative overflow-hidden rounded-xl mb-2.5 flex items-center justify-center border border-amber-500/20 shadow-inner group/img ${
-                      item.id === 'mineral-water' ? 'bg-white p-2' : 'bg-black'
-                    }`}>
+                    <div className={`h-28 sm:h-36 relative overflow-hidden rounded-xl mb-2.5 flex items-center justify-center border border-amber-500/20 shadow-inner group/img ${item.id === 'mineral-water' ? 'bg-white p-2' : 'bg-black'
+                      }`}>
                       <img
                         src={item.image}
                         alt={item.name}
                         loading="lazy"
                         decoding="async"
-                        className={`w-full h-full ${
-                          item.id === 'mineral-water' ? 'object-contain' : 'object-cover'
-                        } group-hover/img:scale-105 transition-transform duration-300`}
+                        className={`w-full h-full ${item.id === 'mineral-water' ? 'object-contain' : 'object-cover'
+                          } group-hover/img:scale-105 transition-transform duration-300`}
                       />
                       {item.badge && (
                         <div className="absolute top-1.5 left-1.5 bg-black/85 border border-amber-500/30 text-amber-300 text-[8px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
@@ -618,8 +616,8 @@ export default function MenuSection() {
                     whileTap={{ scale: 0.96 }}
                     onClick={() => setSelectedScoopMode('1-scoop')}
                     className={`p-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl border text-center transition-all ${selectedScoopMode === '1-scoop'
-                        ? 'border-amber-400 bg-amber-500/20 shadow-lg shadow-amber-500/20 ring-2 ring-amber-400'
-                        : 'border-gray-800 bg-[#121622]/90 text-gray-400 hover:border-gray-700'
+                      ? 'border-amber-400 bg-amber-500/20 shadow-lg shadow-amber-500/20 ring-2 ring-amber-400'
+                      : 'border-gray-800 bg-[#121622]/90 text-gray-400 hover:border-gray-700'
                       }`}
                   >
                     <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-gray-300">Single Scoop</div>
@@ -632,8 +630,8 @@ export default function MenuSection() {
                     whileTap={{ scale: 0.96 }}
                     onClick={() => setSelectedScoopMode('2-scoop')}
                     className={`p-2.5 sm:px-5 sm:py-3 rounded-xl sm:rounded-2xl border text-center transition-all ${selectedScoopMode === '2-scoop'
-                        ? 'border-amber-400 bg-amber-500/20 shadow-lg shadow-amber-500/20 ring-2 ring-amber-400'
-                        : 'border-gray-800 bg-[#121622]/90 text-gray-400 hover:border-gray-700'
+                      ? 'border-amber-400 bg-amber-500/20 shadow-lg shadow-amber-500/20 ring-2 ring-amber-400'
+                      : 'border-gray-800 bg-[#121622]/90 text-gray-400 hover:border-gray-700'
                       }`}
                   >
                     <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-gray-300">Double Scoop</div>

@@ -22,8 +22,6 @@ export default function CartDrawer() {
     deliveryTiers,
     freeDeliveryThreshold,
     isFreeDelivery,
-    orderInstructions,
-    setOrderInstructions,
     shopConfig,
     setActiveModal
   } = useCart();
@@ -134,8 +132,8 @@ export default function CartDrawer() {
                       type="button"
                       onClick={() => setDeliveryArea(tier.id)}
                       className={`py-1.5 px-1 rounded-lg border text-center transition-all flex flex-col items-center justify-center min-w-0 ${isSelected
-                          ? 'border-amber-400 bg-amber-500/20 text-white ring-1 ring-amber-400'
-                          : 'border-gray-800 bg-[#141824] text-gray-400 hover:border-gray-700'
+                        ? 'border-amber-400 bg-amber-500/20 text-white ring-1 ring-amber-400'
+                        : 'border-gray-800 bg-[#141824] text-gray-400 hover:border-gray-700'
                         }`}
                     >
                       <span className="text-[10px] sm:text-[11px] font-bold truncate block w-full">
@@ -179,11 +177,10 @@ export default function CartDrawer() {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className={`w-16 h-16 rounded-lg flex-shrink-0 border border-gray-800 ${
-                        item.image?.includes('/images/') && !item.image?.includes('mpc') && !item.image?.includes('menu') && !item.image?.includes('restaurant')
+                      className={`w-16 h-16 rounded-lg flex-shrink-0 border border-gray-800 ${item.image?.includes('/images/') && !item.image?.includes('mpc') && !item.image?.includes('menu') && !item.image?.includes('restaurant')
                           ? 'object-contain bg-white p-1'
                           : 'object-cover'
-                      }`}
+                        }`}
                     />
 
                     <div className="flex-1 min-w-0">
@@ -238,23 +235,6 @@ export default function CartDrawer() {
                   </div>
                 ))
               )}
-
-              {/* Special Instructions */}
-              {cartItems.length > 0 && (
-                <div className="pt-2">
-                  <label className="text-xs font-semibold text-gray-400 block mb-1">
-                    Special Instructions / Kitchen Notes:
-                  </label>
-                  <textarea
-                    value={orderInstructions}
-                    onChange={(e) => setOrderInstructions(e.target.value)}
-                    placeholder="e.g. Extra spicy, send spoons and tissues, chilled raita..."
-                    rows={2}
-                    className="w-full bg-[#0a0d14] border border-amber-500/20 rounded-xl p-2.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-[#e6b343]"
-                  />
-                </div>
-              )}
-
             </div>
 
             {/* Cart Footer */}

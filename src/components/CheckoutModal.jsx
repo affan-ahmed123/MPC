@@ -198,8 +198,8 @@ export default function CheckoutModal() {
                     type="button"
                     onClick={() => setDeliveryArea(tier.id)}
                     className={`py-2 px-1.5 rounded-xl border text-center transition-all flex flex-col items-center justify-center ${isSelected
-                        ? 'border-amber-400 bg-amber-500/20 text-white ring-1 ring-amber-400'
-                        : 'border-gray-800 bg-[#161b24] text-gray-400 hover:border-gray-700'
+                      ? 'border-amber-400 bg-amber-500/20 text-white ring-1 ring-amber-400'
+                      : 'border-gray-800 bg-[#161b24] text-gray-400 hover:border-gray-700'
                       }`}
                   >
                     <span className="font-bold text-xs text-white">

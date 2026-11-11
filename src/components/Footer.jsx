@@ -18,16 +18,16 @@ export default function Footer() {
   return (
     <footer className="bg-[#07090d]/95 backdrop-blur-md text-gray-400 border-t border-[#e6b343]/20 pt-10 pb-20 sm:pb-12 text-xs relative w-full max-w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 w-full max-w-full">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 pb-8 sm:pb-10 border-b border-gray-800 w-full max-w-full">
-          
+
           {/* Brand Col with the Official MPC Logo */}
           <div className="md:col-span-2 space-y-3 min-w-0">
             <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden p-0.5 bg-gradient-to-br from-amber-400 to-amber-700 shadow-md flex-shrink-0">
-                <img 
-                  src="/images/mpc-logo.png" 
-                  alt="MPC Logo" 
+                <img
+                  src="/images/mpc-logo.png"
+                  alt="MPC Logo"
                   className="w-full h-full object-contain rounded-[10px] bg-black/80 p-0.5"
                 />
               </div>
@@ -110,7 +110,7 @@ export default function Footer() {
               Direct Contact
             </h5>
             <div className="space-y-2 text-xs">
-              <a 
+              <a
                 href={`https://wa.me/${shopConfig.whatsappNumber}`}
                 target="_blank"
                 rel="noreferrer"
@@ -119,7 +119,7 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4 fill-current flex-shrink-0" />
                 <span className="font-mono">+{shopConfig.whatsappNumber}</span>
               </a>
-              <a 
+              <a
                 href={`tel:${shopConfig.phone}`}
                 className="flex items-center gap-2 text-gray-300 hover:text-white"
               >

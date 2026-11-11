@@ -9,7 +9,7 @@ export default function OrderSuccessModal() {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div 
+      <div
         className="relative w-full max-w-lg bg-[#121622] border border-[#e6b343]/40 rounded-2xl shadow-2xl p-6 text-center text-gray-200 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
