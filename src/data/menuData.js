@@ -74,10 +74,10 @@ export const MENU_ITEMS = [
   {
     id: 'aloo-biryani',
     category: 'biryani',
-    name: 'Aloo Biryani (Potato Dum Biryani)',
+    name: 'Sada Biryani',
     badge: 'Budget Value Special',
-    description: 'Fragrant saffron basmati rice layered with flavorful, tender golden marinated potatoes in traditional Karachi masala style.',
-    image: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=800&auto=format&fit=crop&q=80',
+    description: 'Fragrant saffron basmati rice layered with flavorful, tender golden marinated potatoes in traditional Karachi dum masala style.',
+    image: '/images/sada-biryani.jpg',
     hasPortions: true,
     startingPrice: 100,
     portions: [
@@ -91,10 +91,10 @@ export const MENU_ITEMS = [
   {
     id: 'sada-pulao',
     category: 'biryani',
-    name: 'Plain Basmati Pulao (Sada Pulao)',
+    name: 'Sada Pulao',
     badge: 'Classic Heritage',
-    description: 'Light, fragrant and fluffy long grain basmati rice infused with bone-broth essence, roasted cumin seeds, and delicate whole spices.',
-    image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&auto=format&fit=crop&q=80',
+    description: 'Light, fragrant and fluffy long grain basmati rice infused with bone-broth yakhni essence, roasted cumin seeds, and delicate whole spices.',
+    image: '/images/sada-pulao.png',
     hasPortions: true,
     startingPrice: 100,
     portions: [

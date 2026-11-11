@@ -88,12 +88,12 @@ export default function Footer() {
               </li>
               <li>
                 <button onClick={() => scrollTo('biryani-section')} className="hover:text-amber-400 transition-colors">
-                  🥔 Aloo Biryani (Potato Biryani)
+                  🥔 Sada Biryani
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo('biryani-section')} className="hover:text-amber-400 transition-colors">
-                  🍚 Plain Basmati Pulao
+                  🍚 Sada Pulao
                 </button>
               </li>
               <li>
