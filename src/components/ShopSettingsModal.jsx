@@ -9,7 +9,7 @@ export default function ShopSettingsModal() {
   const [whatsapp, setWhatsapp] = useState(shopConfig.whatsappNumber || '923141281986');
   const [phone, setPhone] = useState(shopConfig.phone || '+92 314 1281986');
   const [address, setAddress] = useState(shopConfig.address || 'Near 10 Number Market, Orangi Town');
-  const [timings, setTimings] = useState(shopConfig.timings || 'Daily: 11:30 AM - 1:30 AM');
+  const [timings, setTimings] = useState(shopConfig.timings || 'Daily: 11:00 AM - 12:00 AM');
   const [deliveryFee, setDeliveryFee] = useState(shopConfig.deliveryFee || 70);
   const [freeThreshold, setFreeThreshold] = useState(shopConfig.freeDeliveryThreshold || 3000);
   const [savedSuccess, setSavedSuccess] = useState(false);

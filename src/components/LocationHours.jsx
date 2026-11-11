@@ -96,7 +96,7 @@ export default function LocationHours() {
               <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-1 w-full max-w-full">
                 <div className="p-2 sm:p-3 bg-[#131722] rounded-lg sm:rounded-xl border border-gray-800 min-w-0 overflow-hidden">
                   <span className="text-[10px] sm:text-[11px] text-gray-400 block truncate">Average Delivery</span>
-                  <span className="text-xs sm:text-sm font-bold text-amber-400 block truncate">30 - 45 Mins</span>
+                  <span className="text-xs sm:text-sm font-bold text-amber-400 block truncate">15 - 30 Mins</span>
                 </div>
                 <div className="p-2 sm:p-3 bg-[#131722] rounded-lg sm:rounded-xl border border-gray-800 min-w-0 overflow-hidden">
                   <span className="text-[10px] sm:text-[11px] text-gray-400 block truncate">Free Delivery</span>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { MENU_CATEGORIES, MENU_ITEMS } from '../data/menuData';
-import { Search, Sparkles, Plus, ShoppingBag, Flame, FileText, IceCream, Award, Utensils, Coffee } from 'lucide-react';
+import { Search, Sparkles, Plus, ShoppingBag, Flame, IceCream, Award, Utensils, Coffee } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function MenuSection() {
@@ -38,11 +38,6 @@ export default function MenuSection() {
     addToCart(item, scoopPortion, flavor, 1);
   };
 
-  const handleOpenFlyer = (card) => {
-    setModalData({ card });
-    setActiveModal('originalMenu');
-  };
-
   const iceCreamItem = MENU_ITEMS.find(i => i.isIceCream);
   const drinksItems = filteredItems.filter(item => item.category === 'drinks');
   const sodaDrinks = drinksItems.filter(item => item.hasPortions && item.portions?.length === 4);
@@ -71,28 +66,6 @@ export default function MenuSection() {
           <p className="text-[11px] sm:text-sm text-gray-300 mt-1">
             All prices, portion sizes, drinks, and flavors strictly match the official menu card.
           </p>
-        </div>
-
-        {/* View Original Cards shortcut buttons */}
-        <div className="grid grid-cols-2 gap-2 w-full md:w-auto flex-shrink-0">
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => handleOpenFlyer('biryani')}
-            className="flex items-center justify-center gap-1 px-2.5 py-2 rounded-xl bg-amber-500/15 border border-amber-500/40 text-[#e6b343] hover:bg-[#e6b343] hover:text-black font-semibold text-[11px] sm:text-xs transition-all shadow min-w-0"
-          >
-            <FileText className="w-3.5 h-3.5 flex-shrink-0" />
-            <span className="truncate">Biryani Flyer</span>
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => handleOpenFlyer('icecream')}
-            className="flex items-center justify-center gap-1 px-2.5 py-2 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-300 hover:bg-[#e6b343] hover:text-black font-semibold text-[11px] sm:text-xs transition-all shadow min-w-0"
-          >
-            <FileText className="w-3.5 h-3.5 flex-shrink-0" />
-            <span className="truncate">Ice Cream Flyer</span>
-          </motion.button>
         </div>
       </motion.div>
 
@@ -807,13 +780,6 @@ export default function MenuSection() {
                   <Sparkles className="w-4 h-4 text-amber-400" />
                   <span>Served in Insulated Dessert Cups with Spoons</span>
                 </div>
-                <button
-                  onClick={() => handleOpenFlyer('icecream')}
-                  className="text-amber-400 hover:underline flex items-center gap-1 font-semibold"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>View Original Ice Cream Flyer</span>
-                </button>
               </div>
 
             </div>

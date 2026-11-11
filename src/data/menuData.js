@@ -16,7 +16,7 @@ export const SHOP_CONFIG = {
   whatsappNumber: "923141281986",
   address: "Near 10 Number Market, Orangi Town",
   city: "Karachi, Pakistan",
-  timings: "Daily: 11:30 AM - 1:30 AM",
+  timings: "Daily: 11:00 AM - 12:00 AM",
   deliveryFee: 70,
   freeDeliveryThreshold: 3000, // FREE delivery on orders Rs. 3000 and above
   minOrder: 100,

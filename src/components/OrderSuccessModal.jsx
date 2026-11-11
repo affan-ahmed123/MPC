@@ -45,7 +45,7 @@ export default function OrderSuccessModal() {
           </div>
           <div className="flex items-center gap-1.5 text-amber-300/90 pt-1">
             <Clock className="w-3.5 h-3.5" />
-            <span>Estimated Delivery Time: Within 30 to 45 minutes</span>
+            <span>Estimated Delivery Time: Within 15 to 30 minutes</span>
           </div>
         </div>
 

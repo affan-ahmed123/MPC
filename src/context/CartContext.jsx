@@ -22,20 +22,23 @@ export const CartProvider = ({ children }) => {
     }
   });
 
-  // Shop Config with updated WhatsApp phone number and Rs. 3000 free delivery
+  // Shop Config with authoritative SHOP_CONFIG
   const [shopConfig, setShopConfig] = useState(() => {
     try {
-      const saved = localStorage.getItem('mpc_shop_config');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        return { 
-          ...SHOP_CONFIG, 
-          ...parsed, 
-          phone: "+92 314 1281986",
-          whatsappNumber: "923141281986",
-          freeDeliveryThreshold: 3000,
-          deliveryFee: 70
-        };
+      if (typeof window !== 'undefined') {
+        const saved = localStorage.getItem('mpc_shop_config');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          // Reset cache if address or timings changed in code
+          if (parsed.address !== SHOP_CONFIG.address || parsed.timings !== SHOP_CONFIG.timings) {
+            localStorage.removeItem('mpc_shop_config');
+            return SHOP_CONFIG;
+          }
+          return {
+            ...parsed,
+            ...SHOP_CONFIG,
+          };
+        }
       }
       return SHOP_CONFIG;
     } catch {
