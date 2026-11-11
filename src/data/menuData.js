@@ -105,6 +105,36 @@ export const MENU_ITEMS = [
     spiceLevel: 'Mild & Light',
     serves: '1 to 3 Persons'
   },
+  {
+    id: 'mini-chicken-daig',
+    category: 'biryani',
+    name: 'Mini Chicken Biryani Daig',
+    badge: '1 Kg Mini Daig 🍲',
+    description: 'Freshly prepared traditional 1 Kg mini chicken biryani daig with tender juicy chicken, fragrant basmati rice, potatoes, and slow dum-cooked Madina spices.',
+    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80',
+    hasPortions: true,
+    startingPrice: 2500,
+    portions: [
+      { id: '1kg-daig', name: '1 Kg Mini Chicken Daig', price: 2500, piece: 'Full 1 Kg Mini Daig (Serves 4-6 Persons)' }
+    ],
+    spiceLevel: 'Karachi Dum Masala',
+    serves: '4 to 6 Persons'
+  },
+  {
+    id: 'mini-beef-daig',
+    category: 'biryani',
+    name: 'Mini Beef Biryani Daig',
+    badge: '1 Kg Royal Daig 🥩',
+    description: 'Authentic 1 Kg mini beef biryani daig slow-cooked with succulent melt-in-mouth beef chunks, rich saffron basmati rice, and traditional spices.',
+    image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&auto=format&fit=crop&q=80',
+    hasPortions: true,
+    startingPrice: 3500,
+    portions: [
+      { id: '1kg-daig', name: '1 Kg Mini Beef Daig', price: 3500, piece: 'Full 1 Kg Mini Daig with Succulent Beef' }
+    ],
+    spiceLevel: 'Rich & Aromatic Masala',
+    serves: '4 to 6 Persons'
+  },
 
   // --- 2. SALAD & RAITA SECTION (Together in one dedicated section) ---
   {

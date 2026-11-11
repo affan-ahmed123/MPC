@@ -76,7 +76,7 @@ export default function PortionModal() {
             <div>
               <div className="flex items-center justify-between mb-2.5">
                 <label className="text-xs font-bold uppercase tracking-wider text-amber-400">
-                  Select Size / Serving:
+                  {item.portions.length === 1 ? 'Package Details:' : 'Select Size / Serving:'}
                 </label>
               </div>
 
@@ -89,8 +89,8 @@ export default function PortionModal() {
                       type="button"
                       onClick={() => setSelectedPortion(portion)}
                       className={`relative flex items-center justify-between p-3 rounded-xl border text-left transition-all ${isSelected
-                          ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
-                          : 'border-gray-800 bg-[#1a202c]/60 text-gray-300 hover:border-gray-700 hover:bg-[#1f2633]'
+                        ? 'border-[#e6b343] bg-[#e6b343]/15 text-white ring-1 ring-[#e6b343]'
+                        : 'border-gray-800 bg-[#1a202c]/60 text-gray-300 hover:border-gray-700 hover:bg-[#1f2633]'
                         }`}
                     >
                       <div>
@@ -129,8 +129,8 @@ export default function PortionModal() {
                       type="button"
                       onClick={() => setSelectedFlavor(flavor)}
                       className={`flex flex-col p-2.5 rounded-xl border text-left transition-all relative ${isSelected
-                          ? 'border-[#e6b343] bg-[#e6b343]/15 text-white shadow-md'
-                          : 'border-gray-800 bg-[#1a202c]/50 text-gray-300 hover:border-gray-700'
+                        ? 'border-[#e6b343] bg-[#e6b343]/15 text-white shadow-md'
+                        : 'border-gray-800 bg-[#1a202c]/50 text-gray-300 hover:border-gray-700'
                         }`}
                     >
                       <div className="flex items-center gap-1.5 mb-1">

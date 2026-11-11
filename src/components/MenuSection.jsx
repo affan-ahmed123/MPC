@@ -166,7 +166,9 @@ export default function MenuSection() {
                           <span className="text-[10px] sm:text-xs text-gray-300 hidden sm:block">{item.serves}</span>
                         </div>
                         <div className="text-right bg-black/90 px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-amber-500/30 flex-shrink-0">
-                          <span className="text-[7px] sm:text-[10px] text-gray-400 block leading-tight">From</span>
+                          <span className="text-[7px] sm:text-[10px] text-gray-400 block leading-tight">
+                            {item.portions.length === 1 ? 'Price' : 'From'}
+                          </span>
                           <span className="text-[11px] sm:text-base font-extrabold text-[#e6b343]">Rs. {item.startingPrice}</span>
                         </div>
                       </div>
@@ -180,8 +182,14 @@ export default function MenuSection() {
 
                       {/* Mobile Portions Summary Pill */}
                       <div className="md:hidden bg-[#0b0e14]/90 rounded-xl p-1.5 border border-amber-500/20 mb-2 text-center">
-                        <span className="text-[9px] text-amber-300 font-semibold block">{item.portions.length} Serving Sizes</span>
-                        <span className="text-[11px] font-black text-[#e6b343] font-mono">Rs. {item.startingPrice} – {item.portions[item.portions.length - 1].price}</span>
+                        <span className="text-[9px] text-amber-300 font-semibold block">
+                          {item.portions.length === 1 ? '1 Kg Mini Daig' : `${item.portions.length} Serving Sizes`}
+                        </span>
+                        <span className="text-[11px] font-black text-[#e6b343] font-mono">
+                          {item.portions.length === 1
+                            ? `Rs. ${item.startingPrice}`
+                            : `Rs. ${item.startingPrice} – ${item.portions[item.portions.length - 1].price}`}
+                        </span>
                       </div>
 
                       {/* Desktop Full Portions Breakdown Table */}
@@ -218,7 +226,7 @@ export default function MenuSection() {
                       className="w-full py-2 sm:py-3 px-1.5 sm:px-4 rounded-xl font-bold text-black bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:brightness-110 shadow-md shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-sm"
                     >
                       <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                      <span className="truncate">Select Size</span>
+                      <span className="truncate">{item.portions.length === 1 ? 'Order Daig' : 'Select Size'}</span>
                     </button>
                   </div>
                 </div>
