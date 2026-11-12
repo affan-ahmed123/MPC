@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
-import { ShoppingBag, Menu, X, FileText, ArrowRight, MessageSquareQuote } from 'lucide-react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
-  const { totalItemCount, totalAmount, setIsCartOpen, setActiveModal, setModalData, setActiveCategory } = useCart();
+  const { totalItemCount, totalAmount, setIsCartOpen, setActiveCategory } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollTo = (id, targetCategory = 'all') => {
@@ -45,12 +45,6 @@ export default function Navbar() {
     setMobileMenuOpen(false);
     if (setActiveCategory) setActiveCategory('all');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const openOriginalCard = (cardType) => {
-    setMobileMenuOpen(false);
-    setModalData({ card: cardType });
-    setActiveModal('originalMenu');
   };
 
   return (
@@ -130,27 +124,10 @@ export default function Navbar() {
 
               <button
                 type="button"
-                onClick={() => scrollTo('icecream-section', 'icecream')}
-                className="text-gray-300 hover:text-amber-400 transition-colors py-1"
-              >
-                <span>Ice Cream</span>
-              </button>
-
-              <button
-                type="button"
                 onClick={() => scrollTo('reviews-section')}
                 className="text-gray-300 hover:text-amber-400 transition-colors py-1 flex items-center gap-1"
               >
                 <span>Reviews</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => openOriginalCard('biryani')}
-                className="text-amber-300/90 hover:text-white transition-colors py-1 flex items-center gap-1 text-xs bg-amber-500/10 hover:bg-amber-500/25 px-2.5 py-1 rounded-xl border border-amber-500/30 shadow-sm"
-              >
-                <FileText className="w-3.5 h-3.5 text-[#e6b343]" />
-                <span>Flyers</span>
               </button>
 
               <button
@@ -164,15 +141,6 @@ export default function Navbar() {
 
             {/* Cart / Checkout Bag Button & Mobile Menu */}
             <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
-
-              {/* View Original Flyer shortcut on medium screens */}
-              <button
-                onClick={() => openOriginalCard('biryani')}
-                className="hidden sm:flex lg:hidden items-center gap-1 text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 px-3 py-2 rounded-xl"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Flyers</span>
-              </button>
 
               {/* Bag-Type Checkout Button */}
               <motion.button
@@ -257,14 +225,6 @@ export default function Navbar() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => scrollTo('icecream-section', 'icecream')}
-                  className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
-                >
-                  <span className="text-base">🍨</span>
-                  <span>Ice Cream</span>
-                </button>
-                <button
-                  type="button"
                   onClick={() => scrollTo('reviews-section')}
                   className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
                 >
@@ -286,17 +246,6 @@ export default function Navbar() {
                 >
                   <span className="text-base">✨</span>
                   <span>Why Us</span>
-                </button>
-              </div>
-
-              <div className="flex gap-2 pt-2 border-t border-gray-800">
-                <button
-                  type="button"
-                  onClick={() => openOriginalCard('biryani')}
-                  className="flex-1 py-2.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-xs font-bold text-amber-300 flex items-center justify-center gap-1.5 active:scale-98 transition-all"
-                >
-                  <FileText className="w-3.5 h-3.5 text-[#e6b343]" />
-                  <span>Original Printed Flyers</span>
                 </button>
               </div>
             </motion.div>

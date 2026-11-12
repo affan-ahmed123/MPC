@@ -8,13 +8,9 @@ export default function PortionModal() {
   if (activeModal !== 'portion' || !modalData) return null;
 
   const item = modalData;
-  const isIceCream = item.isIceCream;
 
   const [selectedPortion, setSelectedPortion] = useState(
     item.portions ? item.portions[0] : null
-  );
-  const [selectedFlavor, setSelectedFlavor] = useState(
-    item.flavors ? item.flavors[0] : null
   );
   const [quantity, setQuantity] = useState(1);
 
@@ -22,7 +18,7 @@ export default function PortionModal() {
   const totalPrice = currentPrice * quantity;
 
   const handleAdd = () => {
-    addToCart(item, selectedPortion, selectedFlavor, quantity);
+    addToCart(item, selectedPortion, null, quantity);
     setActiveModal(null);
   };
 
@@ -35,7 +31,7 @@ export default function PortionModal() {
         {/* Top Header Image & Close Button */}
         <div className={`relative h-44 sm:h-52 w-full overflow-hidden ${item.category === 'drinks' ? 'bg-white flex items-center justify-center p-4' : 'bg-black'}`}>
           <img
-            src={isIceCream && selectedFlavor ? selectedFlavor.image : item.image}
+            src={item.image}
             alt={item.name}
             className={item.category === 'drinks' ? "h-full w-auto object-contain drop-shadow-lg" : "w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"}
           />
@@ -57,10 +53,10 @@ export default function PortionModal() {
 
           <div className="absolute bottom-3 left-4 right-4 z-10">
             <h3 className="text-2xl font-bold font-serif text-white drop-shadow-md">
-              {isIceCream && selectedFlavor ? `${selectedFlavor.name} Ice Cream Cup` : item.name}
+              {item.name}
             </h3>
             <p className="text-[#e6b343] text-sm font-semibold mt-0.5 drop-shadow">
-              {isIceCream ? '🍨 Served in Chilled Dessert Cup with Spoon' : item.category === 'drinks' ? '🥤 Ice Chilled & Sealed Bottle' : 'Authentic Taste & Quality'}
+              {item.category === 'drinks' ? '🥤 Ice Chilled & Sealed Bottle' : 'Authentic Taste & Quality'}
             </p>
           </div>
         </div>
@@ -107,44 +103,6 @@ export default function PortionModal() {
                           </div>
                         )}
                       </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Flavor Selection (For Ice Cream) */}
-          {isIceCream && item.flavors && (
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-amber-400 block mb-2">
-                Choose Your Flavor:
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-1">
-                {item.flavors.map((flavor) => {
-                  const isSelected = selectedFlavor?.id === flavor.id;
-                  return (
-                    <button
-                      key={flavor.id}
-                      type="button"
-                      onClick={() => setSelectedFlavor(flavor)}
-                      className={`flex flex-col p-2.5 rounded-xl border text-left transition-all relative ${isSelected
-                        ? 'border-[#e6b343] bg-[#e6b343]/15 text-white shadow-md'
-                        : 'border-gray-800 bg-[#1a202c]/50 text-gray-300 hover:border-gray-700'
-                        }`}
-                    >
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <span
-                          className="w-3 h-3 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: flavor.color }}
-                        />
-                        <span className="text-xs font-semibold truncate">{flavor.name}</span>
-                      </div>
-                      {isSelected && (
-                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-[#e6b343] text-black flex items-center justify-center">
-                          <Check className="w-2.5 h-2.5 stroke-[3]" />
-                        </div>
-                      )}
                     </button>
                   );
                 })}

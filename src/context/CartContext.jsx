@@ -12,11 +12,15 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }) => {
-  // Load saved cart from localStorage
+  // Load saved cart from localStorage (purge any removed ice cream items)
   const [cartItems, setCartItems] = useState(() => {
     try {
       const saved = localStorage.getItem('mpc_cart');
-      return saved ? JSON.parse(saved) : [];
+      if (!saved) return [];
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed)
+        ? parsed.filter(ci => ci.itemId !== 'icecream-flavors' && !ci.flavor)
+        : [];
     } catch {
       return [];
     }
@@ -91,10 +95,10 @@ export const CartProvider = ({ children }) => {
   }, [deliveryArea]);
 
   // Add Item to Cart
-  const addToCart = (item, selectedPortion = null, selectedFlavor = null, quantity = 1) => {
+  const addToCart = (item, selectedPortion = null, _unused = null, quantity = 1) => {
     const portion = selectedPortion || (item.portions ? item.portions[0] : null);
     const price = portion ? portion.price : (item.price || item.startingPrice);
-    const cartItemId = `${item.id}-${portion ? portion.id : 'default'}-${selectedFlavor ? selectedFlavor.id : 'none'}`;
+    const cartItemId = `${item.id}-${portion ? portion.id : 'default'}`;
 
     setCartItems(prev => {
       const existingIndex = prev.findIndex(ci => ci.cartItemId === cartItemId);
@@ -108,12 +112,11 @@ export const CartProvider = ({ children }) => {
           {
             cartItemId,
             itemId: item.id,
-            name: selectedFlavor ? `${selectedFlavor.name} Ice Cream` : item.name,
-            image: (selectedFlavor && selectedFlavor.image) ? selectedFlavor.image : item.image,
+            name: item.name,
+            image: item.image,
             price: price,
             portionId: portion ? portion.id : null,
             portionName: portion ? portion.name : null,
-            flavor: selectedFlavor ? selectedFlavor.name : null,
             quantity: quantity,
           }
         ];

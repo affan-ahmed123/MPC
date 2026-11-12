@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 
 // Modals
 import PortionModal from './components/PortionModal';
-import OriginalMenuModal from './components/OriginalMenuModal';
 import CartDrawer from './components/CartDrawer';
 import CheckoutModal from './components/CheckoutModal';
 import OrderSuccessModal from './components/OrderSuccessModal';
@@ -26,7 +25,7 @@ export default function App() {
         {/* Hero Banner with Official MPC Logo and warm ambiance */}
         <Hero />
 
-        {/* Full Menu Section (Biryani, Pulao, Artisanal Ice Cream 11 flavors, Drinks & Extras) */}
+        {/* Full Menu Section (Biryani, Pulao, Nali Biryani, Sides & Chilled Drinks) */}
         <MenuSection />
 
         {/* Why Choose Madina Biryani */}
@@ -43,7 +42,6 @@ export default function App() {
 
         {/* Interactive Modals */}
         <PortionModal />
-        <OriginalMenuModal />
         <CartDrawer />
         <CheckoutModal />
         <OrderSuccessModal />

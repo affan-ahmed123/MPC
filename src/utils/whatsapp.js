@@ -29,9 +29,6 @@ export function formatWhatsAppMessage({
     if (item.portionName) {
       msg += `   ▫️ Portion / Size: ${item.portionName}\n`;
     }
-    if (item.flavor) {
-      msg += `   ▫️ Flavor: ${item.flavor}\n`;
-    }
     msg += `   ▫️ Quantity: ${item.quantity} x Rs. ${item.price} = *Rs. ${item.quantity * item.price}*\n\n`;
   });
 

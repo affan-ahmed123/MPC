@@ -1,19 +1,14 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { Sparkles, MessageCircle, ArrowRight, FileText, Flame, Utensils, Bike } from 'lucide-react';
+import { Sparkles, MessageCircle, ArrowRight, Flame, Utensils, Bike } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
-  const { setActiveModal, setModalData, shopConfig } = useCart();
+  const { shopConfig } = useCart();
 
   const scrollToMenu = () => {
     const el = document.getElementById('menu');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const openOriginalFlyer = () => {
-    setModalData({ card: 'biryani' });
-    setActiveModal('originalMenu');
   };
 
   return (
@@ -73,7 +68,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto leading-relaxed"
           >
-            The authentic taste of Karachi dum biryani! Fresh aromatic chicken biryani, tender beef yakhni pulao, refreshing sides, and 100% pure dairy <strong className="text-amber-300">Artisanal Ice Cream</strong> delivered directly to your doorstep.
+            The authentic taste of Karachi dum biryani! Fresh aromatic chicken biryani, tender beef yakhni pulao, rich <strong className="text-amber-300">Nali Biryani</strong>, refreshing sides, and chilled drinks delivered directly to your doorstep.
           </motion.p>
         </div>
 
@@ -106,16 +101,6 @@ export default function Hero() {
             <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-current flex-shrink-0" />
             <span className="truncate">WhatsApp: {shopConfig.phone}</span>
           </motion.a>
-
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            onClick={openOriginalFlyer}
-            className="w-full sm:w-auto py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-xl font-semibold text-gray-200 bg-[#121624]/90 hover:bg-[#1a2030] border border-amber-500/30 transition-all flex items-center justify-center gap-2 text-xs sm:text-sm min-w-0"
-          >
-            <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#e6b343] flex-shrink-0" />
-            <span className="truncate">View Menu Flyers</span>
-          </motion.button>
         </motion.div>
 
         {/* 4 Feature Pill Cards (2-column on mobile, zero overflow) */}
@@ -152,9 +137,9 @@ export default function Hero() {
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center mx-auto mb-1.5 sm:mb-2 group-hover:scale-110 transition-transform flex-shrink-0">
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <h4 className="font-bold text-white text-xs sm:text-sm truncate">Artisanal Ice Cream</h4>
-            <p className="text-[11px] sm:text-xs text-amber-400 font-extrabold mt-0.5">11 Signature Flavors</p>
-            <p className="text-[9px] sm:text-[11px] text-gray-300 mt-0.5 truncate">1 Scoop 120 • Double 220</p>
+            <h4 className="font-bold text-white text-xs sm:text-sm truncate">Nali Biryani</h4>
+            <p className="text-[11px] sm:text-xs text-amber-400 font-extrabold mt-0.5">Starts Rs. 200</p>
+            <p className="text-[9px] sm:text-[11px] text-gray-300 mt-0.5 truncate">Royal Marrow & Rich Masala</p>
           </motion.div>
 
           <motion.div

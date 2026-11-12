@@ -1,18 +1,13 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
-import { MessageCircle, Phone, MapPin, FileText, Settings } from 'lucide-react';
+import { MessageCircle, Phone, MapPin, Settings } from 'lucide-react';
 
 export default function Footer() {
-  const { shopConfig, setActiveModal, setModalData } = useCart();
+  const { shopConfig, setActiveModal } = useCart();
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const openCard = (type) => {
-    setModalData({ card: type });
-    setActiveModal('originalMenu');
   };
 
   return (
@@ -42,24 +37,10 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-gray-300 max-w-md leading-relaxed">
-              {shopConfig.slogan} — Traditional aroma, slow-steamed chicken dum biryani, beef yakhni pulao, and pure dairy Artisanal Ice Cream.
+              {shopConfig.slogan} — Traditional aroma, slow-steamed chicken dum biryani, beef yakhni pulao, rich Nali Biryani, 1 Kg Mini Daigs, and chilled drinks.
             </p>
 
             <div className="flex flex-wrap items-center gap-1.5 pt-1">
-              <button
-                onClick={() => openCard('biryani')}
-                className="px-2.5 py-1.5 rounded-lg bg-gray-800 hover:bg-[#e6b343] hover:text-black text-gray-300 font-semibold transition-colors flex items-center gap-1 text-[11px]"
-              >
-                <FileText className="w-3.5 h-3.5 flex-shrink-0" />
-                <span>Biryani Flyer</span>
-              </button>
-              <button
-                onClick={() => openCard('icecream')}
-                className="px-2.5 py-1.5 rounded-lg bg-gray-800 hover:bg-[#e6b343] hover:text-black text-gray-300 font-semibold transition-colors flex items-center gap-1 text-[11px]"
-              >
-                <FileText className="w-3.5 h-3.5 flex-shrink-0" />
-                <span>Ice Cream Flyer</span>
-              </button>
               <button
                 onClick={() => setActiveModal('settings')}
                 className="p-1.5 rounded-lg bg-gray-800 hover:bg-white/10 text-gray-400 hover:text-amber-300 transition-colors flex-shrink-0"
@@ -88,17 +69,17 @@ export default function Footer() {
               </li>
               <li>
                 <button onClick={() => scrollTo('biryani-section')} className="hover:text-amber-400 transition-colors">
-                  🥔 Sada Biryani
+                  🦴 Nali Biryani
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollTo('biryani-section')} className="hover:text-amber-400 transition-colors">
-                  🍚 Sada Pulao
+                  🥔 Sada Biryani & Pulao
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo('icecream-section')} className="hover:text-amber-400 transition-colors">
-                  🍨 Ice Cream (11 Flavors)
+                <button onClick={() => scrollTo('drinks-section')} className="hover:text-amber-400 transition-colors">
+                  🥤 Chilled Drinks & Juices
                 </button>
               </li>
             </ul>

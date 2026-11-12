@@ -124,10 +124,10 @@
 /* Offset for fixed navbar on mobile & desktop anchors */
 #menu,
 #biryani-section,
-#extras-section,
-#icecream-section,
+#salad-raita-section,
+#drinks-section,
 #location-hours,
 #why-choose-us,
-#reviews {
+#reviews-section {
   scroll-margin-top: 80px;
 }

@@ -158,7 +158,7 @@ export default function CartDrawer() {
                   <div>
                     <h4 className="text-base font-bold text-white mb-1">Your Bag is Empty</h4>
                     <p className="text-xs text-gray-400 max-w-xs">
-                      Please select your favorite Biryani, Pulao, Sides, Chilled Drinks, or Ice Cream from our menu.
+                      Please select your favorite Biryani, Nali Biryani, Pulao, Sides, or Chilled Drinks from our menu.
                     </p>
                   </div>
                   <button
@@ -178,8 +178,8 @@ export default function CartDrawer() {
                       src={item.image}
                       alt={item.name}
                       className={`w-16 h-16 rounded-lg flex-shrink-0 border border-gray-800 ${item.image?.includes('/images/') && !item.image?.includes('mpc') && !item.image?.includes('menu') && !item.image?.includes('restaurant')
-                          ? 'object-contain bg-white p-1'
-                          : 'object-cover'
+                        ? 'object-contain bg-white p-1'
+                        : 'object-cover'
                         }`}
                     />
 
@@ -198,12 +198,6 @@ export default function CartDrawer() {
                       {item.portionName && (
                         <div className="text-[11px] text-amber-300 bg-amber-500/15 inline-block px-1.5 py-0.5 rounded mt-0.5">
                           {item.portionName}
-                        </div>
-                      )}
-
-                      {item.flavor && (
-                        <div className="text-[11px] text-pink-300 bg-pink-500/15 inline-block px-1.5 py-0.5 rounded mt-0.5 ml-1">
-                          Flavor: {item.flavor}
                         </div>
                       )}
 
