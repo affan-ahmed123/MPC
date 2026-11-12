@@ -1,85 +1,80 @@
-# 🍲 Madina Biryani & Pakwan Center (MPC / MBC)
-### مدینہ بریانی اینڈ پکوان سینٹر — آفیشل ویب سائٹ اور واٹس ایپ آرڈرنگ سسٹم
+# Madina Pakwan Center (MPC)
 
-> **"خوش ذائقہ معیار کے ساتھ، ہمیشہ آپ کے ساتھ"**  
-> **"لذیذ کھانا • بہترین ذائقہ • آپ کی پسند"**  
-> **"Premium Ice Cream For a Sweeter Moment"**
+Official web application and online WhatsApp ordering system for **Madina Pakwan Center**, located near 10 Number Market, Orangi Town, Karachi, Pakistan.
 
-ایک مکمل، خوبصورت، تیز رفتار اور رسپانسیو ری ایکٹ (React JS) اسٹیٹک ویب سائٹ جو خاص طور پر **مدینہ بریانی اینڈ پکوان سینٹر** کے فراہم کردہ دونوں مینو کارڈز کے عین مطابق ڈیزائن کی گئی ہے۔ اس میں کسٹمر براہ راست آئٹم، پورشن، اور فلیور منتخب کر کے ایک کلک میں واٹس ایپ پر آرڈر بھیج سکتا ہے۔
+> **"Delicious Taste with Quality, Always with You"**  
+> **Delicious Food • Premium Taste • Your Choice**
 
 ---
 
-## 🌟 نمایاں خصوصیات (Key Features)
+## Key Features
 
-1. **شاہی پکوان تھیم (Royal Pakwan Design Theme):**
-   - روایتی پاکستانی پکوان سینٹر اور مغلائی کلینری اسٹائل: رائل گولڈ، زعفرانی ایمبر، ڈیپ چارکول اور اسلامک آرچ موٹف۔
-   - اردو خطاطی و نستعلیق اور ماڈرن انگریزی ٹائپوگرافی کا حسین امتزاج۔
-
-2. **عین مینو کارڈ کے مطابق آئٹمز اور ریٹس:**
-   - **چکن بریانی (Chicken Biryani):**
-     - پاؤ (250g): 170 روپے
-     - ڈیڑھ پاؤ (375g): 230 روپے
-     - آدھا کلو سنگل پیس: 280 روپے
-     - آدھا کلو ڈبل پیس: 340 روپے
-     - ایک کلو ڈبل پیس: 540 روپے
-     - ایک کلو 4 پیس (فیملی پیک): 680 روپے
-   - **بیف پلاؤ (Beef Pulao):**
-     - پاؤ (250g): 200 روپے | آدھا کلو (500g): 400 روپے | تین پاؤ (750g): 600 روپے | ایک کلو (1000g): 800 روپے
-   - **آلو والی بریانی (Aloo Biryani):**
-     - پاؤ: 100 روپے | آدھا کلو: 200 روپے | ایک کلو: 400 روپے
-   - **سادہ پلاؤ (Sada Pulao):**
-     - پاؤ: 100 روپے | آدھا کلو: 200 روپے | ایک کلو: 400 روپے
-   - **رائتہ و لوازمات (Millac Raita & Extras):**
-     - ملک رائتہ کپ: 60 روپے | تازہ کچومر سلاد: 40 روپے | کولڈ ڈرنکس: 70 تا 230 روپے
-     - منرل واٹر بوتل: چھوٹی 60 روپے | بڑی 120 روپے
-   - **ایم بی سی رائل آئس کریم (MBC Ice Cream - 11 Flavors):**
-     - 1 Scoop: Rs. 120 | Double Scoop: Rs. 220
-     - تمام 11 فلیورز: Strawberry, Caramel Crunch, King Kulfa, R Chocolate, King Kulfa Economy, Pista, Mango, Dairy Vanilla, Cotton Candy, Butterscotch, Cheesecake
-
-3. **پکوان و دیگ بکنگ کیلکولیٹر (Pakwan Daig Calculator):**
-   - شادی، ولیمہ، ختمِ قرآن، محفل و میلاد اور خاندانی تقریبات کے لیے دیگ آرڈر کا آن لائن کیلکولیٹر۔
-   - دیگ کا وزن (10kg, 12kg, 15kg)، دیگوں کی تعداد اور مہمانوں کی گنتی کے مطابق تخمینہ لاگت اور فوری واٹس ایپ بکنگ۔
-
-4. **واٹس ایپ ڈائریکٹ چیک آؤٹ (WhatsApp Checkout Flow):**
-   - کسٹمر اپنی کارٹ میں آئٹمز اور پورشن شامل کرتا ہے۔
-   - چیک آؤٹ پر کسٹمر کا نام، فون نمبر، ڈلیوری پتہ (یا ٹیک اوے/ڈائن ان) اور خصوصی ہدایات درج ہوتی ہیں۔
-   - بٹن دبانے پر خوبصورت اردو رسید کے ساتھ واٹس ایپ خود بخود کھل جاتی ہے اور دکان کے نمبر پر آرڈر چلا جاتا ہے۔
-   - ساتھ ہی کانفیٹی اینیمیشن اور آرڈر ریفرنس آئی ڈی جنریٹ ہوتی ہے۔
-
-5. **اصل پرنٹڈ مینو کارڈ ویور (Original Menu Viewer):**
-   - ویب سائٹ پر کسٹمر کسی بھی وقت اصل پرنٹ شدہ مینو کارڈ (بریانی مینو اور آئس کریم مینو) زوم کر کے دیکھ سکتا ہے۔
-
-6. **دکان سیٹنگز موڈل (Shop WhatsApp Settings):**
-   - دکان کا مالک کسی بھی وقت ویب سائٹ کی ہیڈر سے سیٹنگز آئیکن پر کلک کر کے اپنا واٹس ایپ نمبر، کالنگ نمبر، دکان کا پتہ اور ڈلیوری فیس تبدیل کر سکتا ہے۔ تمام تر تبدیلیاں لوکل اسٹوریج میں فوری محفوظ ہو جاتی ہیں۔
+- **Authentic Royal Pakwan UI:** Responsive, mobile-first dark-gold theme built with React, Tailwind CSS, and Framer Motion.
+- **Complete Digital Menu with Portion Selection:**
+  - **Biryani & Pulao:**
+    - **Special Chicken Biryani:** Quarter Portion 250g (`Rs. 170`) to 1 Kg 4 Pieces (`Rs. 680`)
+    - **Special Beef Yakhni Pulao:** Quarter Portion 250g (`Rs. 200`), Half Kg (`Rs. 400`), 3 Quarter (`Rs. 600`), 1 Kg (`Rs. 800`)
+    - **Nali Biryani:** Quarter Portion 250g (`Rs. 200`), Half Kg (`Rs. 400`), 3 Quarter (`Rs. 600`), 1 Kg (`Rs. 800`)
+    - **Sada Biryani:** Quarter Portion (`Rs. 100`), Half Kg (`Rs. 200`), 1 Kg (`Rs. 400`)
+    - **Sada Pulao:** Quarter Portion (`Rs. 100`), Half Kg (`Rs. 200`), 1 Kg (`Rs. 400`)
+    - **Mini Chicken Biryani Daig (1 Kg):** `Rs. 2500`
+    - **Mini Beef Biryani Daig (1 Kg):** `Rs. 3500`
+  - **Fresh Salad, Raita & Water:**
+    - **Raita:** `Rs. 60`
+    - **Salad:** `Rs. 40`
+    - **Water Bottle:** 500ml (`Rs. 60`) | 1.5L (`Rs. 120`)
+  - **Chilled Drinks & Juices:**
+    - **Pepsi, 7Up, Sprite, Mountain Dew, Cola Next, Fizz Up:** 300ml (`Rs. 90`), 500ml (`Rs. 120`), 1.5L (`Rs. 220`), 2.5L (`Rs. 280`)
+    - **Sting:** 300ml (`Rs. 100`), 500ml (`Rs. 140`)
+    - **Slice Juice:** `Rs. 70`
+    - **Pakola Juice:** `Rs. 110`
+- **Delivery Tiers & Direct WhatsApp Checkout:**
+  - Distance-based delivery fee selection (**Nearby Area:** `Rs. 70`, **Medium Distance:** `Rs. 150`, **Long Distance:** `Rs. 250`) with **Free Delivery** on orders `Rs. 3000+`.
+  - Average delivery time: `15 - 30 Mins` | Operating hours: `Daily: 11:00 AM - 12:00 AM`.
+  - Clean slide-out cart drawer and checkout modal that formats a structured order summary with reference ID and opens directly in WhatsApp (`+92 314 1281986`).
+- **Customer Reviews & Feedback:**
+  - View customer testimonials and submit live reviews backed by the `/api/reviews` serverless endpoint (MongoDB) with local storage fallback.
+- **Shop Settings Modal:**
+  - Update store contact/WhatsApp settings directly from the footer configuration button.
 
 ---
 
-## 🚀 چلانے کا طریقہ (Getting Started)
+## Tech Stack
 
-### 1. پروجیکٹ رن کریں (Development Server)
+- **Frontend:** React 19, Vite, Tailwind CSS v3, Framer Motion, Lucide Icons, Canvas Confetti
+- **Backend / API:** Vercel Serverless Functions (`api/reviews.js`) with MongoDB
+- **Deployment:** Vercel
+
+---
+
+## Getting Started
+
+### 1. Install Dependencies
+```bash
+npm install
+```
+
+### 2. Run Development Server
 ```bash
 npm run dev
 ```
-لوکل سرور `http://localhost:5173` پر شروع ہو جائے گا۔
+Starts the local dev server at `http://localhost:5173`.
 
-### 2. پروڈکشن بلڈ (Production Build)
+### 3. Build for Production
 ```bash
 npm run build
 ```
-اسٹیٹک فائلز `dist/` فولڈر میں بن جائیں گی جنہیں کسی بھی اسٹیٹک ہوسٹنگ (GitHub Pages, Netlify, Vercel, Firebase Hosting) پر مفت ہوسٹ کیا جا سکتا ہے۔
+Generates optimized static assets inside the `dist/` folder.
 
-### 3. بلڈ کا پریویو (Preview Production)
+### 4. Preview Production Build
 ```bash
 npm run preview
 ```
 
 ---
 
-## 🛠️ استعمال شدہ ٹیکنالوجیز (Tech Stack)
+## Deployment
 
-- **React 19**
-- **Vite**
-- **Tailwind CSS v3**
-- **Lucide Icons**
-- **Canvas Confetti**
-- **Google Fonts** (Noto Nastaliq Urdu, Amiri, Cinzel, Playfair Display, Outfit)
+Pushes to the `main` branch automatically trigger production builds and deployments on Vercel via `vercel.json`.
+
+**Live URL:** [https://musa-six-neon.vercel.app](https://musa-six-neon.vercel.app)

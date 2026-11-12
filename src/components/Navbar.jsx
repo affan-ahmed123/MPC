@@ -20,7 +20,7 @@ export default function Navbar() {
     const performScroll = () => {
       const el = document.getElementById(id);
       if (el) {
-        const navOffset = 75;
+        const navOffset = window.innerWidth >= 640 ? 96 : 72;
         const rect = el.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         const targetTop = Math.max(0, rect.top + scrollTop - navOffset);
@@ -36,9 +36,9 @@ export default function Navbar() {
       }
     };
 
-    // Execute immediately and once after drawer animation begins
+    // Execute immediately and after mobile drawer collapse animation
     requestAnimationFrame(performScroll);
-    setTimeout(performScroll, 120);
+    setTimeout(performScroll, 220);
   };
 
   const handleLogoClick = () => {
@@ -58,23 +58,23 @@ export default function Navbar() {
         {/* Top golden shimmer accent */}
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#e6b343] to-transparent opacity-80" />
         <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 w-full">
-          <div className="flex items-center justify-between h-16 sm:h-20 gap-2 min-w-0">
+          <div className="flex items-center justify-between h-[68px] sm:h-24 gap-2 min-w-0">
 
             {/* Logo & Brand Identity */}
             <div
-              className="flex items-center gap-2 sm:gap-3 cursor-pointer group select-none py-1 min-w-0 flex-1 overflow-hidden"
+              className="flex items-center gap-2.5 sm:gap-3.5 cursor-pointer group select-none py-1 min-w-0 flex-1 overflow-hidden"
               onClick={handleLogoClick}
             >
               {/* Real MPC Logo Badge */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative w-8 h-8 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-600 shadow-md flex-shrink-0"
+                className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden p-0.5 bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-600 shadow-lg flex-shrink-0"
               >
                 <img
                   src="/images/mpc-logo.png"
                   alt="Madina Pakwan Center"
-                  className="w-full h-full object-contain rounded-[10px] sm:rounded-[14px] bg-[#0c0f16] p-0.5"
+                  className="w-full h-full object-contain rounded-[10px] sm:rounded-[14px] bg-[#0c0f16]"
                 />
               </motion.div>
 
@@ -124,7 +124,7 @@ export default function Navbar() {
 
               <button
                 type="button"
-                onClick={() => scrollTo('reviews-section')}
+                onClick={() => scrollTo('reviews')}
                 className="text-gray-300 hover:text-amber-400 transition-colors py-1 flex items-center gap-1"
               >
                 <span>Reviews</span>
@@ -225,7 +225,7 @@ export default function Navbar() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => scrollTo('reviews-section')}
+                  onClick={() => scrollTo('reviews')}
                   className="p-2.5 rounded-xl bg-[#141824] hover:bg-amber-500/15 active:bg-amber-500/30 border border-gray-800 text-left text-white font-medium transition-all flex items-center gap-2"
                 >
                   <span className="text-base">⭐</span>
@@ -254,7 +254,7 @@ export default function Navbar() {
       </motion.header>
 
       {/* Spacer to keep layout seamless behind fixed top navbar */}
-      <div className="h-16 sm:h-20 w-full pointer-events-none" aria-hidden="true" />
+      <div className="h-[68px] sm:h-24 w-full pointer-events-none" aria-hidden="true" />
     </>
   );
 }

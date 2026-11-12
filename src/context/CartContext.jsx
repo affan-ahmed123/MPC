@@ -60,7 +60,7 @@ export const CartProvider = ({ children }) => {
   });
 
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState(null); // 'portion', 'checkout', 'success', 'settings', 'originalMenu'
+  const [activeModal, setActiveModal] = useState(null); // 'portion', 'checkout', 'success', 'settings'
   const [modalData, setModalData] = useState(null);
   const [lastOrder, setLastOrder] = useState(null);
   const [orderInstructions, setOrderInstructions] = useState('');
